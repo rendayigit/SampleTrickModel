@@ -1,0 +1,30 @@
+/************************************************************
+PURPOSE:
+    ( A sample trick model created using only cpp. Renda. )
+LIBRARY DEPENDENCIES:
+    ((Renda.cpp))
+*************************************************************/
+
+#define TRICK_NO_MONTE_CARLO
+#define TRICK_NO_MASTERSLAVE
+#define TRICK_NO_INSTRUMENTATION
+#define TRICK_NO_REALTIMEINJECTOR
+#define TRICK_NO_ZEROCONF
+
+#include "default_trick_sys.sm"
+#include <SimObject.hh>
+
+##include "Renda.hpp"
+
+class RendaSimObject : public Trick::SimObject {
+    public:
+    Renda renda;
+
+    RendaSimObject() {
+        ("default_data")     renda.default_data() ;
+        ("initialization")   renda.init() ;
+        (1.0 , "scheduled")  renda.scheduled() ;
+    }
+};
+
+RendaSimObject dyn;
