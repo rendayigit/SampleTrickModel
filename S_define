@@ -11,8 +11,7 @@ LIBRARY DEPENDENCIES:
 #define TRICK_NO_REALTIMEINJECTOR
 #define TRICK_NO_ZEROCONF
 
-#include "default_trick_sys.sm"
-#include <SimObject.hh>
+#include "sim_objects/default_trick_sys.sm"
 
 ##include "Renda.hpp"
 
