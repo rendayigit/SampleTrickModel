@@ -19,3 +19,5 @@ RUN_test/S_job_execution
 RUN_test/S_run_summary
 RUN_test/send_hs
 RUN_test/varserver_log
+tests/bin/tests
+tests/coverage/

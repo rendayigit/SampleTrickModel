@@ -4,28 +4,35 @@ LIBRARY DEPENDENCY:
     ((Renda.o))
 *******************************************************************************/
 #include "Renda.hpp"
-#include <math.h>
 #include <iostream>
 
 int Renda::default_data() {
-    std::cout << "Default Data Entered" << std::endl;
-    a[0] = 0.0;
-    a[1] = 6578000.0;
-    b[0] = 7905.0;
-    b[1] = 0.0;
-    c = 900;
-    return 0;
+  std::cout << "Default Data Entered" << std::endl;
+  a[0] = 0.0;
+  a[1] = 6578000.0;
+  b[0] = 7905.0;
+  b[1] = 0.0;
+  c = 900;
+  return 0;
 }
 
 int Renda::init() {
-    std::cout << "Initialization Entered" << std::endl;
-    b[1] = 0.1;
-    c = 9000;
-    return 0;
+  std::cout << "Initialization Entered" << std::endl;
+  b[1] = add(1, 2);
+  c = sub(500, 2);
+  return 0;
 }
 
 int Renda::scheduled() {
-   std::cout << "Scheduled Entered" << std::endl;
-   c++;
-   return 0;
+  std::cout << "Scheduled Entered" << std::endl;
+  c++;
+  return 0;
 }
+
+int Renda::add(int a, int b) { return a + b; }
+
+int Renda::sub(int a, int b) { return a - b; }
+
+int Renda::mul(int a, int b) { return a * b; }
+
+int Renda::div(int a, int b) { return a / b; }

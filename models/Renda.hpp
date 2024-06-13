@@ -7,14 +7,19 @@ LIBRARY DEPENDENCIES:
 #define RENDA_HPP
 
 class Renda {
-    public:
-        double a[2] ;               /* m     a value */
-        double b[2] ;               /* m/s   b value */
-        unsigned long long c ;      /* cm    c value  */
+public:
+  double a[2];          /* m     a value */
+  double b[2];          /* m/s   b value */
+  unsigned long long c; /* cm    c value */
 
-        int default_data();
-        int init();
-        int scheduled();
+  int default_data();
+  int init();
+  int scheduled();
+
+  static int add(int a, int b);
+  static int sub(int a, int b);
+  static int mul(int a, int b);
+  static int div(int a, int b);
 };
 
 #endif // RENDA_HPP
