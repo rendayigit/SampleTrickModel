@@ -9,4 +9,5 @@
     "clangd.path": "clangd",
     "clangd.onConfigChanged": "restart",
     "testMate.cpp.test.executables": "{tests}/**/*{tests}*",
+    "cmake.ignoreCMakeListsMissing": true,
 }
