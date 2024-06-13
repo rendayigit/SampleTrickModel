@@ -8,5 +8,6 @@
         "--include-directory=${workspaceFolder}/models"
     ],
     "clangd.path": "clangd",
-    "clangd.onConfigChanged": "restart"
+    "clangd.onConfigChanged": "restart",
+    "testMate.cpp.test.executables": "{tests}/**/*{tests}*",
 }

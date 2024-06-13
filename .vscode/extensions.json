@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "tdennis4496.cmantic",
+        "ms-vscode.cpptools",
+        "matepek.vscode-catch2-test-adapter",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools",
+    ]
+}
