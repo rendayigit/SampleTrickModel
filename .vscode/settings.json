@@ -1,10 +1,9 @@
 {
     "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.fallbackFlags": [
-        //"--include-directory=${env:TRICK_HOME}/share/trick/sim_objects"
-        "--include-directory=/home/pc/trick/share/trick",   // replace with ${env:TRICK_HOME}
-        "--include-directory=/home/pc/trick/include",                   // replace with ${env:TRICK_HOME}
-        "--include-directory=/home/pc/trick/include/trick",             // replace with ${env:TRICK_HOME}
+        "--include-directory=${env:TRICK_HOME}/share/trick",
+        "--include-directory=${env:TRICK_HOME}/include",
+        "--include-directory=${env:TRICK_HOME}/include/trick",
         "--include-directory=${workspaceFolder}/models"
     ],
     "clangd.path": "clangd",
