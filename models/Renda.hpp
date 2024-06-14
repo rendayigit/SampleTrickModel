@@ -20,6 +20,9 @@ public:
   static int sub(int a, int b);
   static int mul(int a, int b);
   static int div(int a, int b);
+
+private:
+  int deneme;
 };
 
 #endif // RENDA_HPP

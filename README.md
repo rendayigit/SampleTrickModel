@@ -31,14 +31,22 @@ rm -rf /tmp/googletest/                                             # Remove tem
 ```
 
 ### Install Gcovr for code coverage
+
 ``` bash
 sudo apt install python3-pip                                        # Install python package manager.
 pip install gcovr                                                   # Install gcovr code coverage tool.
 ```
 
 ### Install GDB for debugging
+
 ``` bash
 sudo apt install gdb                                                # Install GNU GDB debugger.
+```
+
+### Install clang-tidy for static code analysis
+
+``` bash
+sudo apt install clang-tidy                                         # Install clang-tidy.
 ```
 
 ### Use the scripts under `scripts/`

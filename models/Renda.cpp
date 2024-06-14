@@ -5,6 +5,7 @@ LIBRARY DEPENDENCY:
 *******************************************************************************/
 #include "Renda.hpp"
 #include <iostream>
+#include <vector>
 
 int Renda::default_data() {
   std::cout << "Default Data Entered" << std::endl;
@@ -13,6 +14,13 @@ int Renda::default_data() {
   b[0] = 7905.0;
   b[1] = 0.0;
   c = 900;
+
+  std::vector<int> myList;
+
+  for (int i = 0; i < myList.size(); i++) {
+    myList.at(i) = 0;
+  }
+
   return 0;
 }
 
