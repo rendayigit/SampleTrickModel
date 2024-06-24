@@ -4,6 +4,13 @@ This is a sample simulation model created to run on [NASA's Trick simulator](htt
 
 ## Usage
 
+### Install Nasa Trick
+
+1. Follow [this guide](https://nasa.github.io/trick/documentation/install_guide/Install-Guide) to install Nasa Trick.
+1. Make sure to install trick under `${HOME}`
+1. Make sure to add `${HOME}/trick/bin` to the `PATH` environment variable.
+1. Make sure to create a permanent envirtonment variable with the value of `${HOME}/trick` named `TRICK_HOME`.
+
 ### Install GNU compilers
 
 ``` bash

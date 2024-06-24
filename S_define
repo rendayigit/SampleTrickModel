@@ -23,6 +23,7 @@ class RendaSimObject : public Trick::SimObject {
         ("default_data")     renda.default_data() ;
         ("initialization")   renda.init() ;
         (1.0 , "scheduled")  renda.scheduled() ;
+        ("shutdown")         renda.shutdown() ;
     }
 };
 

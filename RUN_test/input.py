@@ -1,3 +1,3 @@
 exec(open("Modified_data/realtime.py").read())
 
-trick.stop(10);
+trick.stop(3.2);

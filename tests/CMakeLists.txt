@@ -5,8 +5,9 @@ project(tests LANGUAGES CXX)
 # Enable coverage
 if(${ENABLE_COVERAGE})
   message("#################### Coverage Enabled ####################")
-  set(GCOV_LINK_FLAGS "--coverage -O0 -g")
+  set(GCOV_LINK_FLAGS "--coverage -O0 -g -fprofile-arcs -ftest-coverage")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCOV_LINK_FLAGS}")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${GCOV_LINK_FLAGS}")
 endif()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)

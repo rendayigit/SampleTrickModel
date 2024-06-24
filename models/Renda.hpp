@@ -15,6 +15,7 @@ public:
   int default_data();
   int init();
   int scheduled();
+  int shutdown();
 
   static int add(int a, int b);
   static int sub(int a, int b);

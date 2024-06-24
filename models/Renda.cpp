@@ -37,6 +37,11 @@ int Renda::scheduled() {
   return 0;
 }
 
+int Renda::shutdown() {
+  std::cout << "Shutdown Entered" << std::endl;
+  return 0;
+}
+
 int Renda::add(int a, int b) { return a + b; }
 
 int Renda::sub(int a, int b) { return a - b; }
