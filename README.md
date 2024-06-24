@@ -33,6 +33,7 @@ rm -rf /tmp/googletest/                                             # Remove tem
 ### Install Gcovr for code coverage
 
 ``` bash
+cd ~
 sudo apt install python3-pip                                        # Install python package manager.
 pip install gcovr                                                   # Install gcovr code coverage tool.
 ```
