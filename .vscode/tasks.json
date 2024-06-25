@@ -10,6 +10,7 @@
             },
             "command": [
                 "chmod -R 777 ./scripts/;",
+                "./tests/scripts/clean.sh;", // TODO: Remove to speed up building
                 "./scripts/build.sh"
             ],
             "options": {

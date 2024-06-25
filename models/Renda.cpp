@@ -45,6 +45,8 @@ int Renda::shutdown() {
   return 0;
 }
 
+double Renda::getSimeTime() { return exec_get_sim_time(); }
+
 int Renda::add(int a, int b) { return a + b; }
 
 int Renda::sub(int a, int b) { return a - b; }

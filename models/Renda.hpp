@@ -22,6 +22,8 @@ public:
   static int mul(int a, int b);
   static int div(int a, int b);
 
+  static double getSimeTime();
+
 private:
   int deneme;
 };
