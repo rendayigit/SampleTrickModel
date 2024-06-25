@@ -7,6 +7,8 @@ LIBRARY DEPENDENCY:
 #include <iostream>
 #include <vector>
 
+#include "sim_services/Executive/include/exec_proto.h"
+
 int Renda::default_data() {
   std::cout << "Default Data Entered" << std::endl;
   a[0] = 0.0;
@@ -39,6 +41,7 @@ int Renda::scheduled() {
 
 int Renda::shutdown() {
   std::cout << "Shutdown Entered" << std::endl;
+  std::cout << "Sim Time: " << exec_get_sim_time() << std::endl;
   return 0;
 }
 
