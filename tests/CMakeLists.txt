@@ -52,7 +52,6 @@ target_link_libraries(tests PRIVATE
     $ENV{TRICK_HOME}/trick_source/data_products/lib_Linux_11.4_x86_64/liblog.a
     $ENV{TRICK_HOME}/trick_source/data_products/lib_Linux_11.4_x86_64/libtrick_units.a
     $ENV{TRICK_HOME}/trick_source/data_products/lib_Linux_11.4_x86_64/libvar.a
-    $ENV{TRICK_HOME}/trick_source/sim_services/DataTypes/lib/libDecl.a
     ${UDUNITS2_LIB}
     # TRICK OBJECT FILES
     $ENV{TRICK_HOME}/trick_source/trick_utils/trick_adt/object_Linux_11.4_x86_64/bubble_sort.o
