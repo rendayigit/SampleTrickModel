@@ -4,6 +4,7 @@
         "--include-directory=${env:TRICK_HOME}/share/trick",
         "--include-directory=${env:TRICK_HOME}/include",
         "--include-directory=${env:TRICK_HOME}/include/trick",
+        "--include-directory=${env:TRICK_HOME}/include/trick/compat",
         "--include-directory=${workspaceFolder}/models"
     ],
     "clangd.path": "clangd",
