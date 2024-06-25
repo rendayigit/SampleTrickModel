@@ -33,7 +33,6 @@ target_include_directories(tests PUBLIC
     ${UDUNITS2_INCLUDE}
 )
 
-
 target_link_libraries(tests PRIVATE 
     gtest_main
     gtest
@@ -55,32 +54,22 @@ target_link_libraries(tests PRIVATE
     $ENV{TRICK_HOME}/trick_source/data_products/lib_Linux_11.4_x86_64/libvar.a
     $ENV{TRICK_HOME}/trick_source/sim_services/DataTypes/lib/libDecl.a
     ${UDUNITS2_LIB}
+    # TRICK OBJECT FILES
     $ENV{TRICK_HOME}/trick_source/trick_utils/trick_adt/object_Linux_11.4_x86_64/bubble_sort.o
     $ENV{TRICK_HOME}/trick_source/trick_utils/trick_adt/object_Linux_11.4_x86_64/dllist.o
     $ENV{TRICK_HOME}/trick_source/sim_services/CheckPointAgent/object_Linux_11.4_x86_64/CheckPointAgent.o
     $ENV{TRICK_HOME}/trick_source/sim_services/CheckPointAgent/object_Linux_11.4_x86_64/ClassicCheckPointerAgent.o
-
     $ENV{TRICK_HOME}/trick_source/sim_services/EventManager/object_Linux_11.4_x86_64/EventManager.o
     $ENV{TRICK_HOME}/trick_source/sim_services/EventManager/object_Linux_11.4_x86_64/EventInstrument.o
     $ENV{TRICK_HOME}/trick_source/sim_services/EventManager/object_Linux_11.4_x86_64/EventProcessor.o
-
     $ENV{TRICK_HOME}/trick_source/sim_services/EventManager/object_Linux_11.4_x86_64/EventManager_c_intf.o
-
     $ENV{TRICK_HOME}/trick_source/sim_services/VariableServer/object_Linux_11.4_x86_64/var_server_ext.o
-
     $ENV{TRICK_HOME}/trick_source/sim_services/VariableServer/object_Linux_11.4_x86_64/VariableServerSession_write_stdio.o
-
     $ENV{TRICK_HOME}/trick_source/sim_services/VariableServer/object_Linux_11.4_x86_64/VariableServer_open_additional_servers.o
     $ENV{TRICK_HOME}/trick_source/sim_services/VariableServer/object_Linux_11.4_x86_64/VariableServer_get_next_freeze_call_time.o
     $ENV{TRICK_HOME}/trick_source/sim_services/VariableServer/object_Linux_11.4_x86_64/VariableServer_get_next_sync_call_time.o
-
-
- 
-
-  
     $ENV{TRICK_HOME}/trick_source/sim_services/CheckPointAgent/object_Linux_11.4_x86_64/ChkPtParseContext.o
-
-
+    # TRICK IO OBJECT FILES
     # $ENV{TRICK_HOME}/trick_source/sim_services/include/object_Linux_11.4_x86_64/io_JobData.o
     # $ENV{TRICK_HOME}/trick_source/sim_services/include/object_Linux_11.4_x86_64/io_SimObject.o
     # $ENV{TRICK_HOME}/trick_source/sim_services/include/object_Linux_11.4_x86_64/class_map.o
