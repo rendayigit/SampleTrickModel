@@ -3,8 +3,8 @@ PURPOSE: ( A sample trick model created using only cpp. ModelX. )
 LIBRARY DEPENDENCIES:
     ((ModelX.o))
 **************************************************************************/
-#ifndef RENDA_HPP
-#define RENDA_HPP
+#ifndef MODELX_HPP
+#define MODELX_HPP
 
 class ModelX {
 public:
@@ -91,4 +91,4 @@ private:
   int deneme; // Notice clangd suggests abiding by the set naming conventions.
 };
 
-#endif // RENDA_HPP
+#endif // MODELX_HPP
