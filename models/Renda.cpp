@@ -19,6 +19,7 @@ int Renda::default_data() {
 
   std::vector<int> myList;
 
+  // Notice clangd suggests using range-based for loop instead
   for (int i = 0; i < myList.size(); i++) {
     myList.at(i) = 0;
   }

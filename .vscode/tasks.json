@@ -45,5 +45,18 @@
             },
             "runOptions": {"reevaluateOnRerun": false},
         },
+        {
+            "label": "Generate Coverage",
+            "type": "shell",
+            "group": "test",
+            "command": [
+                "chmod -R 777 ./tests/scripts/;",
+                "./scripts/coverage.sh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/tests"
+            },
+            "runOptions": {"reevaluateOnRerun": false},
+        },
     ]
 }
