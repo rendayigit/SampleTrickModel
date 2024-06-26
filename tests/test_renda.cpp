@@ -17,5 +17,7 @@ TEST(Renda, Multiplication) {
 }
 
 TEST(Renda, GetSimTime) {
-  EXPECT_GT(Renda::getSimeTime(), 0);
+  EXPECT_EQ(Renda::getSimeTime(), 0);
+  EXPECT_EQ(Renda::getSimeTime(), 1);
+  EXPECT_EQ(Renda::getSimeTime(), 2);
 }
