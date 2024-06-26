@@ -1,6 +1,8 @@
 set(SOURCEFILES
     # Model Source Files
     ${CMAKE_SOURCE_DIR}/../models/Renda.cpp
+    # Mock Files
+    ${CMAKE_SOURCE_DIR}/mocks/exec_proto/mock_exec_proto.cpp
     # Unit Test Files
     ${CMAKE_SOURCE_DIR}/test_renda.cpp
 )

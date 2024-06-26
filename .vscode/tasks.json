@@ -10,6 +10,7 @@
             },
             "command": [
                 "chmod -R 777 ./scripts/;",
+                "./tests/scripts/clean.sh;", // TODO: Remove to speed up building
                 "./scripts/build.sh"
             ],
             "options": {
@@ -38,6 +39,19 @@
             "command": [
                 "chmod -R 777 ./tests/scripts/;",
                 "./scripts/run.sh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/tests"
+            },
+            "runOptions": {"reevaluateOnRerun": false},
+        },
+        {
+            "label": "Generate Coverage",
+            "type": "shell",
+            "group": "test",
+            "command": [
+                "chmod -R 777 ./tests/scripts/;",
+                "./scripts/coverage.sh"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/tests"

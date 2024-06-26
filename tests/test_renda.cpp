@@ -1,4 +1,5 @@
 #include "Renda.hpp"
+#include "mocks/exec_proto/mock_exec_proto.hpp"
 #include <gtest/gtest.h>
 
 TEST(Renda, Addition) {
@@ -14,4 +15,14 @@ TEST(Renda, Subtraction) {
 TEST(Renda, Multiplication) {
   EXPECT_EQ(Renda::mul(1, 2), 2);
   EXPECT_EQ(Renda::mul(2, -1), -2);
+}
+
+TEST(Renda, GetSimTime) {
+  EXPECT_EQ(Renda::getSimeTime(), 0);
+
+  set_sim_time(1);
+  EXPECT_EQ(Renda::getSimeTime(), 1);
+
+  set_sim_time(2);
+  EXPECT_EQ(Renda::getSimeTime(), 2);
 }
