@@ -88,7 +88,8 @@ public:
   static double getSimeTime();
 
 private:
-  int deneme; // Notice clangd suggests abiding by the set naming conventions.
+  // Notice clangd suggests abiding by the set naming conventions.
+  int deneme;
 };
 
 #endif // MODELX_HPP

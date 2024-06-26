@@ -13,7 +13,7 @@ LIBRARY DEPENDENCIES:
 
 #include "sim_objects/default_trick_sys.sm"
 
-##include "ModelX.hpp"
+##include "modelX/ModelX.hpp"
 
 class ModelXSimObject : public Trick::SimObject {
     public:
