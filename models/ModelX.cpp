@@ -1,15 +1,15 @@
 /********************************* TRICK HEADER *******************************
-PURPOSE: ( A sample trick model created using only cpp. Renda. )
+PURPOSE: ( A sample trick model created using only cpp. ModelX. )
 LIBRARY DEPENDENCY:
-    ((Renda.o))
+    ((ModelX.o))
 *******************************************************************************/
-#include "Renda.hpp"
+#include "ModelX.hpp"
 #include <iostream>
 #include <vector>
 
 #include "sim_services/Executive/include/exec_proto.h"
 
-int Renda::default_data() {
+int ModelX::default_data() {
   std::cout << "Default Data Entered" << std::endl;
   a[0] = 0.0;
   a[1] = 6578000.0;
@@ -27,31 +27,31 @@ int Renda::default_data() {
   return 0;
 }
 
-int Renda::init() {
+int ModelX::init() {
   std::cout << "Initialization Entered" << std::endl;
   b[1] = add(1, 2);
   c = sub(500, 2);
   return 0;
 }
 
-int Renda::scheduled() {
+int ModelX::scheduled() {
   std::cout << "Scheduled Entered" << std::endl;
   c++;
   return 0;
 }
 
-int Renda::shutdown() {
+int ModelX::shutdown() {
   std::cout << "Shutdown Entered" << std::endl;
   std::cout << "Sim Time: " << exec_get_sim_time() << std::endl;
   return 0;
 }
 
-double Renda::getSimeTime() { return exec_get_sim_time(); }
+double ModelX::getSimeTime() { return exec_get_sim_time(); }
 
-int Renda::add(int a, int b) { return a + b; }
+int ModelX::add(int a, int b) { return a + b; }
 
-int Renda::sub(int a, int b) { return a - b; }
+int ModelX::sub(int a, int b) { return a - b; }
 
-int Renda::mul(int a, int b) { return a * b; }
+int ModelX::mul(int a, int b) { return a * b; }
 
-int Renda::div(int a, int b) { return a / b; }
+int ModelX::div(int a, int b) { return a / b; }

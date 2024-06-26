@@ -1,8 +1,8 @@
 /************************************************************
 PURPOSE:
-    ( A sample trick model created using only cpp. Renda. )
+    ( A sample trick model created using only cpp. ModelX. )
 LIBRARY DEPENDENCIES:
-    ((Renda.cpp))
+    ((ModelX.cpp))
 *************************************************************/
 
 #define TRICK_NO_MONTE_CARLO
@@ -13,18 +13,18 @@ LIBRARY DEPENDENCIES:
 
 #include "sim_objects/default_trick_sys.sm"
 
-##include "Renda.hpp"
+##include "ModelX.hpp"
 
-class RendaSimObject : public Trick::SimObject {
+class ModelXSimObject : public Trick::SimObject {
     public:
-    Renda renda;
+    ModelX modelX;
 
-    RendaSimObject() {
-        ("default_data")     renda.default_data() ;
-        ("initialization")   renda.init() ;
-        (1.0 , "scheduled")  renda.scheduled() ;
-        ("shutdown")         renda.shutdown() ;
+    ModelXSimObject() {
+        ("default_data")     modelX.default_data() ;
+        ("initialization")   modelX.init() ;
+        (1.0 , "scheduled")  modelX.scheduled() ;
+        ("shutdown")         modelX.shutdown() ;
     }
 };
 
-RendaSimObject dyn;
+ModelXSimObject dyn;

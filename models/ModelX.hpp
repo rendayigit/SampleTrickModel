@@ -1,12 +1,12 @@
 /*************************************************************************
-PURPOSE: ( A sample trick model created using only cpp. Renda. )
+PURPOSE: ( A sample trick model created using only cpp. ModelX. )
 LIBRARY DEPENDENCIES:
-    ((Renda.o))
+    ((ModelX.o))
 **************************************************************************/
 #ifndef RENDA_HPP
 #define RENDA_HPP
 
-class Renda {
+class ModelX {
 public:
   double a[2];            /* m     sample a value */
   double b[2];            /* m/s   sample b value */
