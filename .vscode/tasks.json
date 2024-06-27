@@ -20,19 +20,6 @@
             "runOptions": {"reevaluateOnRerun": false},
         },
         {
-            "label": "Clean All",
-            "type": "shell",
-            "group": "build",
-            "command": [
-                "chmod -R 777 ./tests/scripts/;",
-                "./tests/scripts/clean.sh;",
-                "make spotless"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/"
-            },
-        },
-        {
             "label": "Run Unit Tests",
             "type": "shell",
             "group": "test",
@@ -42,6 +29,18 @@
             ],
             "options": {
                 "cwd": "${workspaceFolder}/tests"
+            },
+            "runOptions": {"reevaluateOnRerun": false},
+        },
+        {
+            "label": "Build & Run Sim",
+            "type": "shell",
+            "group": "test",
+            "command": [
+                "trick-CP; ./S_main_Linux_11.4_x86_64.exe RUN_test/input.py",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
             "runOptions": {"reevaluateOnRerun": false},
         },
@@ -57,6 +56,19 @@
                 "cwd": "${workspaceFolder}/tests"
             },
             "runOptions": {"reevaluateOnRerun": false},
+        },
+        {
+            "label": "Clean All",
+            "type": "shell",
+            "group": "build",
+            "command": [
+                "chmod -R 777 ./tests/scripts/;",
+                "./tests/scripts/clean.sh;",
+                "make spotless"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
         },
     ]
 }
