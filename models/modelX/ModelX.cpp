@@ -4,6 +4,8 @@ LIBRARY DEPENDENCY:
     ((ModelX.o))
 *******************************************************************************/
 #include "ModelX.hpp"
+#include "common/modelEvent.hpp"
+
 #include <iostream>
 #include <vector>
 
@@ -31,6 +33,16 @@ int ModelX::init() {
   std::cout << "Initialization Entered" << std::endl;
   b[1] = add(1, 2);
   c = sub(500, 2);
+
+  auto *event = new ModelEvent;
+
+  event->setEventFunction([]() { std::cout << "setEventFunction Entered @ " << exec_get_sim_time() << std::endl; });
+  event->set_cycle(0);
+  event->setTriggerTime(2.2);
+  event->activate();
+
+  event_manager_add_event(event);
+
   return 0;
 }
 
