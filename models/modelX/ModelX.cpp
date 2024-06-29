@@ -36,7 +36,8 @@ int ModelX::init() {
 
   auto *event = new ModelEvent;
 
-  event->setEventFunction([]() { std::cout << "setEventFunction Entered @ " << exec_get_sim_time() << std::endl; });
+  event->setEventFunction(
+      []() { std::cout << "setEventFunction Entered @ " << exec_get_sim_time() << std::endl; });
   event->set_cycle(0);
   event->setTriggerTime(2.2);
   event->activate();

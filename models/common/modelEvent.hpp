@@ -5,6 +5,7 @@ PURPOSE: ( TODO )
 #ifndef MODELEVENT_HPP
 #define MODELEVENT_HPP
 
+#include "sim_services/Executive/include/exec_proto.h"
 #include "trick/Event.hh"
 #include "trick/EventManager_c_intf.hh"
 #include <functional>

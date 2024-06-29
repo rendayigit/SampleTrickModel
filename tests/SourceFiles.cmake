@@ -13,5 +13,6 @@ set(INCLUDEDIRS
     $ENV{TRICK_HOME}/include/trick/
     $ENV{TRICK_HOME}/include/trick/compat/
     # Model Header File Dirs
+    ${CMAKE_SOURCE_DIR}/../models/
     ${CMAKE_SOURCE_DIR}/../models/modelX/
 )
