@@ -70,5 +70,16 @@
                 "cwd": "${workspaceFolder}/"
             },
         },
+        {
+            "label": "Run Trick TV",
+            "type": "shell",
+            "group": "test",
+            "command": [
+                "trick-tv --port 3333 --cycle 0.1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
+        },
     ]
 }
