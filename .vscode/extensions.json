@@ -6,5 +6,6 @@
         "llvm-vs-code-extensions.vscode-clangd",
         "twxs.cmake",
         "ms-vscode.cmake-tools",
+        "spmeesseman.vscode-taskexplorer",
     ]
 }
