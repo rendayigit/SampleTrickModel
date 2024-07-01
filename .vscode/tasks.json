@@ -71,11 +71,22 @@
             },
         },
         {
-            "label": "Run Trick TV",
+            "label": "Run Trick TV GUI",
             "type": "shell",
             "group": "test",
             "command": [
                 "trick-tv --port 3333 --cycle 0.1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
+        },
+        {
+            "label": "Run Trick Simulation Controller GUI",
+            "type": "shell",
+            "group": "test",
+            "command": [
+                "trick-simcontrol localhost 3333"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/"
