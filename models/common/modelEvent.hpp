@@ -15,13 +15,6 @@ public:
   void setEventFunction(std::function<void()> eventFunction) {
     m_eventFunction = std::move(eventFunction);
   }
-  int process(long long) override {
-    m_eventFunction();
-    return 0;
-  }
-  void add() override {}
-  void remove() override {}
-  void restart() override {}
 
   void setTriggerTime(double time) {
     std::cout << "Trigger Entered @ " << exec_get_time_tics() << std::endl;
@@ -29,6 +22,15 @@ public:
   }
 
 private:
+  int process(long long) override {
+    m_eventFunction();
+    return 0;
+  }
+
+  void add() override {}
+  void remove() override {}
+  void restart() override {}
+
   std::function<void()> m_eventFunction;
 };
 
