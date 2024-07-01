@@ -2,7 +2,7 @@
 PURPOSE:
     ( A sample trick model created using only cpp. ModelX. )
 LIBRARY DEPENDENCIES:
-    ((ModelX.cpp))
+    ((modelX/ModelX.cpp))
 *************************************************************/
 
 // TODO - Review these:
@@ -26,6 +26,7 @@ LIBRARY DEPENDENCIES:
 // #define TRICK_NO_UNITTEST
 
 #include "sim_objects/default_trick_sys.sm"
+// #include "sim_objects/CivetServer.sm"
 
 ##include "modelX/ModelX.hpp"
 
