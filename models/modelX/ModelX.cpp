@@ -12,7 +12,7 @@ LIBRARY DEPENDENCY:
 #include "sim_services/Executive/include/exec_proto.h"
 
 int ModelX::default_data() {
-  std::cout << "Default Data Entered" << std::endl;
+  std::cout << "Default Data Entered \t\t@ " << exec_get_sim_time() << std::endl;
   a[0] = 0.0;
   a[1] = 6578000.0;
   b[0] = 7905.0;
@@ -30,14 +30,14 @@ int ModelX::default_data() {
 }
 
 int ModelX::init() {
-  std::cout << "Initialization Entered" << std::endl;
+  std::cout << "Initialization Entered \t\t@ " << exec_get_sim_time() << std::endl;
   b[1] = add(1, 2);
   c = sub(500, 2);
 
   auto *event = new ModelEvent;
 
   event->setEventFunction(
-      []() { std::cout << "setEventFunction Entered @ " << exec_get_sim_time() << std::endl; });
+      []() { std::cout << "setEventFunction Entered \t@ " << exec_get_sim_time() << std::endl; });
   event->set_name("My Sample Model Event");
   event->set_cycle(0);
   event->setTriggerTime(2.2);
@@ -49,13 +49,13 @@ int ModelX::init() {
 }
 
 int ModelX::scheduled() {
-  std::cout << "Scheduled Entered" << std::endl;
+  std::cout << "Scheduled Entered \t\t@ " << exec_get_sim_time() << std::endl;
   c++;
   return 0;
 }
 
 int ModelX::shutdown() {
-  std::cout << "Shutdown Entered" << std::endl;
+  std::cout << "Shutdown Entered \t\t@ " << exec_get_sim_time() << std::endl;
   std::cout << "Sim Time: " << exec_get_sim_time() << std::endl;
   return 0;
 }

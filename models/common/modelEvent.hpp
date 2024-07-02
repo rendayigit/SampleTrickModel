@@ -17,7 +17,7 @@ public:
   }
 
   void setTriggerTime(double time) {
-    std::cout << "Trigger Entered @ " << exec_get_time_tics() << std::endl;
+    std::cout << "Trigger Entered \t\t@ " << exec_get_time_tics() << std::endl;
     set_next_tics(time * 1000000);
   }
 
