@@ -3,6 +3,8 @@ PURPOSE:
     ( A sample trick model created using only cpp. ModelX. )
 LIBRARY DEPENDENCIES:
     ((modelX/ModelX.cpp))
+PROGRAMMERS:
+    (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
 *************************************************************/
 
 // TODO - Review these:
