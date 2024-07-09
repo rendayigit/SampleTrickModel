@@ -1,8 +1,8 @@
 /************************************************************
 PURPOSE:
-    ( A sample trick model created using only cpp. ModelX. )
+    ( A sample trick model created using only cpp. Root. )
 LIBRARY DEPENDENCIES:
-    ((modelX/ModelX.cpp))
+    ((root/Root.hpp))
 PROGRAMMERS:
     (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
 *************************************************************/
@@ -30,18 +30,17 @@ PROGRAMMERS:
 #include "sim_objects/default_trick_sys.sm"
 // #include "sim_objects/CivetServer.sm"
 
-##include "modelX/ModelX.hpp"
+##include "root/Root.hpp"
 
-class ModelXSimObject : public Trick::SimObject {
+class RootSimObject : public Trick::SimObject {
     public:
-    ModelX modelX;
 
-    ModelXSimObject() {
-        ("default_data")     modelX.default_data() ;
-        ("initialization")   modelX.init() ;
-        (1.0 , "scheduled")  modelX.scheduled() ;
-        ("shutdown")         modelX.shutdown() ;
+    RootSimObject() {
+        // ("default_data")     Root::getInstance().modelX->default_data() ;
+        // ("initialization")   Root::getInstance().modelX->init() ;
+        // (1.0 , "scheduled")  Root::getInstance().modelX->scheduled() ;
+        // ("shutdown")         Root::getInstance().modelX->shutdown() ;
     }
 };
 
-ModelXSimObject dyn;
+RootSimObject rootSO;
