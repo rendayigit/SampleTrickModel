@@ -13,8 +13,8 @@ ICG: (No)
 #include "common/DataFlow.hpp"
 class ModelY {
 public:
-DataFlow yData; /* -- */
-    void update();
+  InFlow<int> yData; /* -- */
+  void update();
 };
 
 #endif // MODELY_HPP
