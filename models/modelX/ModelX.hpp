@@ -9,7 +9,7 @@ ICG: (No)
 #ifndef MODELX_HPP
 #define MODELX_HPP
 
-#include "common/DataFlow.hpp"
+#include "common/OutFlow.hpp"
 
 class ModelX {
 public:

@@ -20,7 +20,7 @@ int ModelX::default_data() {
   a[1] = 6578000.0;
   b[0] = 7905.0;
   b[1] = 0.0;
-//   c.set(900);
+  c.set(900);
 
   std::vector<int> myList;
 
@@ -35,7 +35,7 @@ int ModelX::default_data() {
 int ModelX::init() {
   std::cout << "Initialization Entered \t\t@ " << exec_get_sim_time() << std::endl;
   b[1] = add(1, 2);
-//   c.set(sub(500, 2));
+  c.set(sub(500, 2));
 
   auto *event = new ModelEvent;
 
@@ -49,14 +49,14 @@ int ModelX::init() {
   event_manager_add_event(event);
 
   c.connect(Root::getInstance().modelY->yData);
-    // c.set(256);
-    std::cout<< Root::getInstance().modelY->yData.get() << std::endl;
+  c.set(256);
+  std::cout << Root::getInstance().modelY->yData.get() << std::endl;
   return 0;
 }
 
 int ModelX::scheduled() {
   std::cout << "Scheduled Entered \t\t@ " << exec_get_sim_time() << std::endl;
-  // c.set(c.get() + 1);
+  c.set(c.get() + 1);
   return 0;
 }
 

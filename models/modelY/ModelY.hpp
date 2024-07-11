@@ -10,7 +10,7 @@ ICG: (No)
 #ifndef MODELY_HPP
 #define MODELY_HPP
 
-#include "common/DataFlow.hpp"
+#include "common/InFlow.hpp"
 class ModelY {
 public:
   InFlow<int> yData; /* -- */

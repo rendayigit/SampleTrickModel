@@ -8,12 +8,12 @@ PROGRAMMERS:
 #ifndef ROOT_HPP
 #define ROOT_HPP
 
-// #include "modelX/ModelX.hpp"
+#include "modelX/ModelX.hpp"
 #include "modelY/ModelY.hpp"
 
 class Root {
 public:
-//   ModelX *modelX;
+  ModelX *modelX;
   ModelY *modelY;
 
   static Root &getInstance() {
@@ -21,8 +21,13 @@ public:
     return instance;
   }
 
+  void init() {
+    modelX->default_data();
+    modelX->init();
+  }
+
 private:
-  Root() : modelY(new ModelY) {}
+  Root() : modelX(new ModelX), modelY(new ModelY) {}
 };
 
 #endif // ROOT_HPP

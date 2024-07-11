@@ -11,29 +11,12 @@ ICG: (No)
 
 template <class T> class DataFlow {
 public:
-  virtual void set(T t) { m_currentValue = t; }
+  virtual void set(T t) = 0;
 
   T get() { return m_currentValue; }
 
 protected:
   T m_currentValue;
-};
-
-template <class T> class InFlow : public DataFlow<T> {};
-
-template <class T> class OutFlow : public DataFlow<T> {
-public:
-  void connect(InFlow<T> inFlow) { m_connectedInFlows.push_back(inFlow); }
-
-  void set(T t) override {
-    this->m_currentValue = t;
-    for (auto i : m_connectedInFlows) {
-      i.set(t);
-    }
-  }
-
-private:
-  std::vector<InFlow<T>> m_connectedInFlows;
 };
 
 #endif // DATAFLOW_HPP

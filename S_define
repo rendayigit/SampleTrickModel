@@ -2,7 +2,12 @@
 PURPOSE:
     ( A sample trick model created using only cpp. Root. )
 LIBRARY DEPENDENCIES:
-    ((root/Root.hpp))
+    (
+        (root/Root.cpp)
+        (modelX/ModelX.cpp)
+        (modelY/ModelY.cpp)
+    )
+
 PROGRAMMERS:
     (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
 *************************************************************/
@@ -31,15 +36,15 @@ PROGRAMMERS:
 // #include "sim_objects/CivetServer.sm"
 
 ##include "root/Root.hpp"
+##include "common/DataFlow.hpp"
+##include "common/InFlow.hpp"
+##include "common/OutFlow.hpp"
 
 class RootSimObject : public Trick::SimObject {
     public:
 
     RootSimObject() {
-        // ("default_data")     Root::getInstance().modelX->default_data() ;
-        // ("initialization")   Root::getInstance().modelX->init() ;
-        // (1.0 , "scheduled")  Root::getInstance().modelX->scheduled() ;
-        // ("shutdown")         Root::getInstance().modelX->shutdown() ;
+        ("initialization")   Root::getInstance().init() ;
     }
 };
 
