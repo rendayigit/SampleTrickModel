@@ -4,7 +4,6 @@ LIBRARY DEPENDENCIES:
     ((ModelX.o))
 PROGRAMMERS:
     (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
-ICG: (No)
 **************************************************************************/
 #ifndef MODELX_HPP
 #define MODELX_HPP

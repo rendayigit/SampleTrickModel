@@ -16,11 +16,13 @@ PROGRAMMERS:
 
 int ModelX::default_data() {
   std::cout << "Default Data Entered \t\t@ " << exec_get_sim_time() << std::endl;
+  
+  // Initialize model variables with random default values
   a[0] = 0.0;
   a[1] = 6578000.0;
   b[0] = 7905.0;
   b[1] = 0.0;
-//   c.set(900);
+  c.set(900);
 
   std::vector<int> myList;
 
@@ -34,9 +36,11 @@ int ModelX::default_data() {
 
 int ModelX::init() {
   std::cout << "Initialization Entered \t\t@ " << exec_get_sim_time() << std::endl;
+  
+  // Set an array variable
   b[1] = add(1, 2);
-//   c.set(sub(500, 2));
 
+  // Create a model event
   auto *event = new ModelEvent;
 
   event->setEventFunction(
@@ -48,15 +52,19 @@ int ModelX::init() {
 
   event_manager_add_event(event);
 
-  c.connect(Root::getInstance().modelY->yData);
-    // c.set(256);
-    std::cout<< Root::getInstance().modelY->yData.get() << std::endl;
+  // Connect modelY inflow variable to modelX outflow variable
+  c.connect(Root::getInstance().modelY->inFlow);
+
+  // Test dataflow connection
+  c.set(256);
+  std::cout << Root::getInstance().modelY->inFlow.get() << std::endl;
+  
   return 0;
 }
 
 int ModelX::scheduled() {
   std::cout << "Scheduled Entered \t\t@ " << exec_get_sim_time() << std::endl;
-  // c.set(c.get() + 1);
+  c.set(c.get() + 1);
   return 0;
 }
 
