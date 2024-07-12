@@ -4,7 +4,7 @@ PURPOSE:
 LIBRARY DEPENDENCIES:
     ((root/Root.hpp))
 PROGRAMMERS:
-    (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
+    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 *************************************************************/
 
 // TODO - Review these:
@@ -36,11 +36,11 @@ class RootSimObject : public Trick::SimObject {
     public:
 
     RootSimObject() {
-        // ("default_data")     Root::getInstance().modelX->default_data() ;
-        // ("initialization")   Root::getInstance().modelX->init() ;
-        // (1.0 , "scheduled")  Root::getInstance().modelX->scheduled() ;
-        // ("shutdown")         Root::getInstance().modelX->shutdown() ;
+        ("default_data")     Root::getInstance().modelX->default_data() ;
+        ("initialization")   Root::getInstance().modelX->init() ;
+        (1.0 , "scheduled")  Root::getInstance().modelX->scheduled() ;
+        ("shutdown")         Root::getInstance().modelX->shutdown() ;
     }
 };
 
-RootSimObject rootSO;
+RootSimObject root;

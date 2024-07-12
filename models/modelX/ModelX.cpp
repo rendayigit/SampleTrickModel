@@ -1,10 +1,10 @@
-/********************************* TRICK HEADER *******************************
+/*************************************************************************
 PURPOSE: ( A sample trick model created using only cpp. ModelX. )
-LIBRARY DEPENDENCY:
+LIBRARY DEPENDENCIES:
     ((ModelX.o))
 PROGRAMMERS:
-    (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
-*******************************************************************************/
+    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
+**************************************************************************/
 #include "ModelX.hpp"
 #include "common/modelEvent.hpp"
 #include "root/Root.hpp"

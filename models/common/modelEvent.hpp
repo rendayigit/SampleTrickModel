@@ -1,7 +1,7 @@
 /*************************************************************************
 PURPOSE: ( A service that allows the creation of events that can be triggered by the simulator. )
 PROGRAMMERS:
-    (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
+    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 **************************************************************************/
 
 #ifndef MODELEVENT_HPP
