@@ -16,7 +16,7 @@ PROGRAMMERS:
 
 int ModelX::default_data() {
   std::cout << "Default Data Entered \t\t@ " << exec_get_sim_time() << std::endl;
-  
+
   // Initialize model variables with random default values
   a[0] = 0.0;
   a[1] = 6578000.0;
@@ -36,7 +36,7 @@ int ModelX::default_data() {
 
 int ModelX::init() {
   std::cout << "Initialization Entered \t\t@ " << exec_get_sim_time() << std::endl;
-  
+
   // Set an array variable
   b[1] = add(1, 2);
 
@@ -52,13 +52,22 @@ int ModelX::init() {
 
   event_manager_add_event(event);
 
-  // Connect modelY inflow variable to modelX outflow variable
-  c.connect(&Root::getInstance().modelY->inFlow);
+  // Connect modelY inflow variables to modelX outflow variable
+  c.connect(&Root::getInstance().modelY->inFlow1);
+  std::cout << "ModelY inFlow1 connection established, inFlow1 value: "
+            << Root::getInstance().modelY->inFlow1.getValue() << std::endl;
+  c.connect(&Root::getInstance().modelY->inFlow2);
+  std::cout << "ModelY inFlow2 connection established, inFlow2 value: "
+            << Root::getInstance().modelY->inFlow2.getValue() << std::endl;
 
-  // Test dataflow connection
+  // Test dataflow connections
   c.setValue(256);
-  std::cout << "ModelY inFlow value: " << Root::getInstance().modelY->inFlow.getValue() << std::endl;
-  
+  std::cout << "ModelX OutFlow value set, c: " << c.getValue() << std::endl;
+  std::cout << "ModelY inFlow1 value: " << Root::getInstance().modelY->inFlow1.getValue()
+            << std::endl;
+  std::cout << "ModelY inFlow2 value: " << Root::getInstance().modelY->inFlow2.getValue()
+            << std::endl;
+
   return 0;
 }
 
