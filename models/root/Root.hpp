@@ -1,7 +1,5 @@
 /*************************************************************************
 PURPOSE: ( The Root of all models. This model is a container of all other models. )
-LIBRARY DEPENDENCIES:
-    ((Root.o))
 PROGRAMMERS:
     ((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
 **************************************************************************/

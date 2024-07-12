@@ -1,7 +1,5 @@
 /*************************************************************************
 PURPOSE: ( A sample trick model created using only cpp. ModelX. )
-LIBRARY DEPENDENCIES:
-    ((ModelX.o))
 PROGRAMMERS:
     ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 **************************************************************************/
