@@ -22,7 +22,7 @@ int ModelX::default_data() {
   a[1] = 6578000.0;
   b[0] = 7905.0;
   b[1] = 0.0;
-  c.set(900);
+  c.setValue(900);
 
   std::vector<int> myList;
 
@@ -56,15 +56,15 @@ int ModelX::init() {
   c.connect(Root::getInstance().modelY->inFlow);
 
   // Test dataflow connection
-  c.set(256);
-  std::cout << Root::getInstance().modelY->inFlow.get() << std::endl;
+  c.setValue(256);
+  std::cout << Root::getInstance().modelY->inFlow.getValue() << std::endl;
   
   return 0;
 }
 
 int ModelX::scheduled() {
   std::cout << "Scheduled Entered \t\t@ " << exec_get_sim_time() << std::endl;
-  c.set(c.get() + 1);
+  c.setValue(c.getValue() + 1);
   return 0;
 }
 

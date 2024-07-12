@@ -10,9 +10,9 @@ PROGRAMMERS:
 
 template <class T> class DataFlow { // NOLINT(readability-identifier-naming)
 public:
-  virtual void set(T t) { m_currentValue = t; }
+  virtual void setValue(T t) { m_currentValue = t; }
 
-  T get() { return m_currentValue; }
+  T getValue() { return m_currentValue; }
 
 protected:
   T m_currentValue;
@@ -24,10 +24,10 @@ template <class T> class OutFlow : public DataFlow<T> { // NOLINT(readability-id
 public:
   void connect(InFlow<T> inFlow) { m_connectedInFlows.push_back(inFlow); }
 
-  void set(T t) override {
+  void setValue(T t) override {
     this->m_currentValue = t;
     for (auto i : m_connectedInFlows) {
-      i.set(t);
+      i.setValue(t);
     }
   }
 
