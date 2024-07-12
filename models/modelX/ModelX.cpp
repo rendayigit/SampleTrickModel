@@ -57,7 +57,7 @@ int ModelX::init() {
 
   // Test dataflow connection
   c.setValue(256);
-  std::cout << Root::getInstance().modelY->inFlow.getValue() << std::endl;
+  std::cout << "ModelY inFlow value: " << Root::getInstance().modelY->inFlow.getValue() << std::endl;
   
   return 0;
 }
