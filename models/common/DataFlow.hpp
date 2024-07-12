@@ -22,17 +22,17 @@ template <class T> class InFlow : public DataFlow<T> {}; // NOLINT(readability-i
 
 template <class T> class OutFlow : public DataFlow<T> { // NOLINT(readability-identifier-naming)
 public:
-  void connect(InFlow<T> inFlow) { m_connectedInFlows.push_back(inFlow); }
+  void connect(InFlow<T> *inFlow) { m_connectedInFlows.push_back(inFlow); }
 
   void setValue(T t) override {
     this->m_currentValue = t;
     for (auto i : m_connectedInFlows) {
-      i.setValue(t);
+      i->setValue(t);
     }
   }
 
 private:
-  std::vector<InFlow<T>> m_connectedInFlows{};
+  std::vector<InFlow<T> *> m_connectedInFlows{};
 };
 
 #endif // DATAFLOW_HPP

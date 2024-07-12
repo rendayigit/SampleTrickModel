@@ -53,7 +53,7 @@ int ModelX::init() {
   event_manager_add_event(event);
 
   // Connect modelY inflow variable to modelX outflow variable
-  c.connect(Root::getInstance().modelY->inFlow);
+  c.connect(&Root::getInstance().modelY->inFlow);
 
   // Test dataflow connection
   c.setValue(256);
