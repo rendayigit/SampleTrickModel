@@ -1,6 +1,6 @@
 /************************************************************
 PURPOSE:
-    ( A sample trick model created using only cpp. Root. )
+    ( Trick models entry point. S_define file. )
 LIBRARY DEPENDENCIES:
     ((root/Root.hpp))
 PROGRAMMERS:
