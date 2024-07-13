@@ -3,16 +3,18 @@ PURPOSE: ( A sample trick model created using only cpp. ModelX. )
 LIBRARY DEPENDENCIES:
     ((ModelX.o))
 PROGRAMMERS:
-    (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
+    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 **************************************************************************/
 #ifndef MODELX_HPP
 #define MODELX_HPP
 
+#include "common/DataFlow.hpp"
+
 class ModelX {
 public:
-  double a[2];            /* m     sample a value */
-  double b[2];            /* m/s   sample b value */
-  unsigned long long c;   /* cm    sample c value */
+  double a[2];    /* m     sample a value */
+  double b[2];    /* m/s   sample b value */
+  OutFlow<int> c; /* cm    sample c value */
 
   /**
    * Trick data initialization function. This function is called at the beginning of the

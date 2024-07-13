@@ -1,12 +1,13 @@
-/********************************* TRICK HEADER *******************************
+/*************************************************************************
 PURPOSE: ( A sample trick model created using only cpp. ModelX. )
-LIBRARY DEPENDENCY:
+LIBRARY DEPENDENCIES:
     ((ModelX.o))
 PROGRAMMERS:
-    (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
-*******************************************************************************/
+    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
+**************************************************************************/
 #include "ModelX.hpp"
 #include "common/modelEvent.hpp"
+#include "root/Root.hpp"
 
 #include <iostream>
 #include <vector>
@@ -15,11 +16,13 @@ PROGRAMMERS:
 
 int ModelX::default_data() {
   std::cout << "Default Data Entered \t\t@ " << exec_get_sim_time() << std::endl;
+
+  // Initialize model variables with random default values
   a[0] = 0.0;
   a[1] = 6578000.0;
   b[0] = 7905.0;
   b[1] = 0.0;
-  c = 900;
+  c.setValue(900);
 
   std::vector<int> myList;
 
@@ -33,9 +36,11 @@ int ModelX::default_data() {
 
 int ModelX::init() {
   std::cout << "Initialization Entered \t\t@ " << exec_get_sim_time() << std::endl;
-  b[1] = add(1, 2);
-  c = sub(500, 2);
 
+  // Set an array variable
+  b[1] = add(1, 2);
+
+  // Create a model event
   auto *event = new ModelEvent;
 
   event->setEventFunction(
@@ -47,12 +52,28 @@ int ModelX::init() {
 
   event_manager_add_event(event);
 
+  // Connect modelY inflow variables to modelX outflow variable
+  c.connect(&Root::getInstance().modelY->inFlow1);
+  std::cout << "ModelY inFlow1 connection established, inFlow1 value: "
+            << Root::getInstance().modelY->inFlow1.getValue() << std::endl;
+  c.connect(&Root::getInstance().modelY->inFlow2);
+  std::cout << "ModelY inFlow2 connection established, inFlow2 value: "
+            << Root::getInstance().modelY->inFlow2.getValue() << std::endl;
+
+  // Test dataflow connections
+  c.setValue(256);
+  std::cout << "ModelX OutFlow value set, c: " << c.getValue() << std::endl;
+  std::cout << "ModelY inFlow1 value: " << Root::getInstance().modelY->inFlow1.getValue()
+            << std::endl;
+  std::cout << "ModelY inFlow2 value: " << Root::getInstance().modelY->inFlow2.getValue()
+            << std::endl;
+
   return 0;
 }
 
 int ModelX::scheduled() {
   std::cout << "Scheduled Entered \t\t@ " << exec_get_sim_time() << std::endl;
-  c++;
+  c.setValue(c.getValue() + 1);
   return 0;
 }
 
