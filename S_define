@@ -2,7 +2,7 @@
 PURPOSE:
     ( Trick models entry point. S_define file. )
 LIBRARY DEPENDENCIES:
-    ((root/Root.hpp))
+    ((root/root.hpp))
 PROGRAMMERS:
     ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 *************************************************************/
@@ -30,16 +30,16 @@ PROGRAMMERS:
 #include "sim_objects/default_trick_sys.sm"
 // #include "sim_objects/CivetServer.sm"
 
-##include "root/Root.hpp"
+##include "root/root.hpp"
 
 class RootSimObject : public Trick::SimObject {
     public:
 
     RootSimObject() {
-        ("default_data")     Root::getInstance().modelX->default_data() ;
-        ("initialization")   Root::getInstance().modelX->init() ;
-        (1.0 , "scheduled")  Root::getInstance().modelX->scheduled() ;
-        ("shutdown")         Root::getInstance().modelX->shutdown() ;
+        ("default_data")     Root::getInstance().default_data() ;
+        ("initialization")   Root::getInstance().init() ;
+        (1.0 , "scheduled")  Root::getInstance().scheduled() ;
+        ("shutdown")         Root::getInstance().shutdown() ;
     }
 };
 

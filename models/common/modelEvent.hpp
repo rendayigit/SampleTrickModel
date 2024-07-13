@@ -32,10 +32,7 @@ public:
    *
    * @throws None
    */
-  void setTriggerTime(double time) {
-    std::cout << "Trigger Entered \t\t@ " << exec_get_time_tics() << std::endl;
-    set_next_tics(time * 1000000);
-  }
+  void setTriggerTime(double time) { set_next_tics(time * 1000000); }
 
 private:
   int process(long long) override {
