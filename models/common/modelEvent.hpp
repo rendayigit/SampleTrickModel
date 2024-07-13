@@ -28,7 +28,7 @@ public:
   /**
    * Sets the trigger time for the event based on the input time.
    *
-   * @param time The simulation time value to set as the trigger time
+   * @param time The simulation time value to set as the trigger time.
    *
    * @throws None
    */
