@@ -29,7 +29,7 @@ public:
   /**
    * Set the current value of the dataFlow variable.
    *
-   * @param t The new value
+   * @param t The new value.
    *
    * @throws None
    */
@@ -38,7 +38,7 @@ public:
   /**
    * Get the current value of the dataFlow variable.
    *
-   * @return The current value
+   * @return The current value.
    *
    * @throws None
    */
@@ -90,9 +90,9 @@ public:
   OutFlow() : m_connectedInFlows({}) {}
 
   /**
-   * Connect a inFlow variable to this outFlow variable.
+   * Connect an inFlow variable to this outFlow variable.
    *
-   * @param inFlow The inFlow variable to be connected
+   * @param inFlow The inFlow variable to be connected.
    *
    * @throws None
    */
@@ -102,7 +102,7 @@ public:
    * Set the current value of the dataFlow variable. All the connected inFlow variables will be
    * automatically updated.
    *
-   * @param t The new value
+   * @param t The new value.
    *
    * @throws None
    */
