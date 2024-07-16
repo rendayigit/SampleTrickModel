@@ -37,7 +37,7 @@
             "type": "shell",
             "group": "test",
             "command": [
-                "make clean; trick-CP; ./S_main_Linux_11.4_x86_64.exe RUN_test/input.py",
+                "make clean; trick-CP; ./S_main_*.exe RUN_test/input.py",
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

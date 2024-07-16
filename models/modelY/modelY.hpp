@@ -3,7 +3,8 @@ PURPOSE: ( A sample trick model. See ModelX for more details. )
 LIBRARY DEPENDENCIES:
     ((modelY.o))
 PROGRAMMERS:
-    ((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
+    (((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
+     ((Renda Yigit) (Turkish Aerospace) (09 July 2024)))
 **************************************************************************/
 #ifndef MODELY_HPP
 #define MODELY_HPP

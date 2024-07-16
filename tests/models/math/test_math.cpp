@@ -1,5 +1,4 @@
 #include "math.hpp"
-#include "mocks/exec_proto/mock_exec_proto.hpp"
 #include <gtest/gtest.h>
 
 TEST(Math, Addition) {

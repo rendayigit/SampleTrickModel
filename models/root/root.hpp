@@ -3,7 +3,8 @@ PURPOSE: ( The Root of all models. This model is a container of all other models
 LIBRARY DEPENDENCIES:
     ((root.o))
 PROGRAMMERS:
-    ((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
+    (((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
+     ((Renda Yigit) (Turkish Aerospace) (09 July 2024)))
 **************************************************************************/
 #ifndef ROOT_HPP
 #define ROOT_HPP
