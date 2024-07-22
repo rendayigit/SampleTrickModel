@@ -63,3 +63,10 @@ sudo apt install clang-tidy                                         # Install cl
 - `clean.sh`: Clean the unit tests.
 - `coverage.sh`: Generate unit test code coverage.
 - `run.sh`: Run the unit tests without code coverage.
+
+### Install zmq for TCP Communication
+
+``` bash
+sudo apt install cppzmq-dev                                         # Install cppzmq-dev
+sudo apt install libczmq-dev                                        # Install libczmq-dev
+```
