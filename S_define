@@ -10,7 +10,10 @@ LIBRARY DEPENDENCIES:
         (root/root.cpp)
     )
 PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
+    (
+        (Renda Yiğit) (Turkish Aerospace) (01 July 2024)
+        (Yusuf Can Anar) (Turkish Aerospace) (01 July 2024)
+    )
 *************************************************************/
 
 // TODO - Review these:
@@ -40,10 +43,13 @@ PROGRAMMERS:
 
 class RootSimObject : public Trick::SimObject {
     public:
+    
+    // Required for variable server
+    Root root = Root::getInstance(); 
 
     RootSimObject() {
-        ("default_data")     Root::getInstance().default_data() ;
-        ("initialization")   Root::getInstance().init() ;
+        ("default_data")     root.default_data() ;
+        ("initialization")   root.init() ;
         (1.0 , "scheduled")  Root::getInstance().scheduled() ;
         ("shutdown")         Root::getInstance().shutdown() ;
     }
