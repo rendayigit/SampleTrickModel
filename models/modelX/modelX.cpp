@@ -109,4 +109,4 @@ void ModelX::establishConnections() {
             << std::endl;
 }
 
-double ModelX::getSimeTime() { return exec_get_sim_time(); }
+double ModelX::getSimTime() { return exec_get_sim_time(); }

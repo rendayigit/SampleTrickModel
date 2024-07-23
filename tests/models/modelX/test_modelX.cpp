@@ -3,11 +3,11 @@
 #include <gtest/gtest.h>
 
 TEST(ModelX, GetSimTime) {
-  EXPECT_EQ(ModelX::getSimeTime(), 0);
+  EXPECT_EQ(ModelX::getSimTime(), 0);
 
   set_sim_time(1);
-  EXPECT_EQ(ModelX::getSimeTime(), 1);
+  EXPECT_EQ(ModelX::getSimTime(), 1);
 
   set_sim_time(2);
-  EXPECT_EQ(ModelX::getSimeTime(), 2);
+  EXPECT_EQ(ModelX::getSimTime(), 2);
 }

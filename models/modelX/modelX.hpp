@@ -24,7 +24,7 @@ public:
    *
    * @return The simulation time as a double.
    */
-  static double getSimeTime();
+  static double getSimTime();
 
   /**
    * Establish connections between modelX and modelY.
