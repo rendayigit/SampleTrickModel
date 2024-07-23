@@ -1,3 +1,12 @@
+/************************************************************
+PURPOSE:
+    ( A variable type that allows the flow of data between models. )
+PROGRAMMERS:
+    (
+        (Renda Yiğit) (Turkish Aerospace) (01 July 2024)
+        (Yusuf Can Anar) (Turkish Aerospace) (01 July 2024)
+    )
+*************************************************************/
 #ifndef DATAFLOW_HPP
 #define DATAFLOW_HPP
 

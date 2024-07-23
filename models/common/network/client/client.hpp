@@ -1,3 +1,11 @@
+/*************************************************************************
+PURPOSE: ( Tcp client )
+PROGRAMMERS:
+    (
+      ((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
+      ((Renda Yigit) (Turkish Aerospace) (09 July 2024))
+    )
+**************************************************************************/
 #ifndef CLIENT_HPP
 #define CLIENT_HPP
 
@@ -17,81 +25,31 @@ class Client {
 public:
   Client();
 
-  // Client(const Client &) = delete;
-  // Client &operator=(const Client &) = delete;
-  // Client(Client &&) = delete;
-  // Client &operator=(Client &&) = delete;
+  Client(const Client &) = delete;
+  Client &operator=(const Client &) = delete;
+  Client(Client &&) = delete;
+  Client &operator=(Client &&) = delete;
 
   virtual ~Client();
 
   void connect(const std::string &serverAddress, uint16_t serverPort);
 
-  void disconnect() {
-    try {
-      if (isConnected()) {
-        m_socket.shutdown(boost::asio::ip::tcp::socket::shutdown_both);
-        m_socket.close();
-      }
+  void disconnect();
 
-      if (not m_ioContext.stopped()) {
-        m_ioContext.stop();
-        m_ioContext.restart();
-      }
-    } catch (std::exception &e) {
-      std::cerr << "Failed to properly disconnect from server: " << e.what() << '\n';
-    }
-  }
+  bool isConnected();
 
-  bool isConnected() { return m_socket.is_open(); }
+  void transmit(const std::string &message);
 
-  void transmit(const std::string &message) {
-    if (isConnected()) {
-      try {
-        io::write(m_socket, io::buffer(message));
-      } catch (std::exception &e) {
-        std::cerr << "Failed to transmit '" << message << "': " << e.what() << '\n';
-      }
-    } else {
-      std::cerr << "Failed to transmit: Not connected\n";
-    }
-  }
+  virtual void onConnect();
 
-  virtual void onConnect() {
-    std::cout << "Connected to " << m_socket.remote_endpoint().address().to_string() << '\n';
-  }
+  virtual void onDisconnect();
 
-  virtual void onDisconnect() {
-    std::cout << "Disconnected from " << m_socket.remote_endpoint().address().to_string() << '\n';
-  }
-
-  virtual void onReceive(const std::string &message) {
-    std::cout << "Received: " << message
-              << " from: " << m_socket.remote_endpoint().address().to_string() << '\n';
-  }
+  virtual void onReceive(const std::string &message);
 
 private:
-  void scheduleRead() {
-    io::async_read_until(m_socket, m_buffer, "\0",
-                         [this](boost::system::error_code errorCode,
-                                std::size_t /*bytesTransferred*/) { readHandler(errorCode); });
-  }
+  void scheduleRead();
 
-  void readHandler(const boost::system::error_code &errorCode) {
-    if (not errorCode) {
-      std::string data{std::istreambuf_iterator<char>(&m_buffer), std::istreambuf_iterator<char>()};
-      onReceive(data);
-      scheduleRead();
-    } else if (errorCode == boost::asio::error::eof) {
-      std::cout << "Server disconnected\n";
-      disconnect();
-    } else if (errorCode == boost::asio::error::operation_aborted) {
-      std::cout << "Connection aborted by client\n";
-      disconnect();
-    } else {
-      std::cerr << "Error on connection: " << errorCode.message() << '\n';
-      disconnect();
-    }
-  }
+  void readHandler(const boost::system::error_code &errorCode);
 
   boost::asio::thread_pool m_ioThread;
   boost::asio::io_context m_ioContext;

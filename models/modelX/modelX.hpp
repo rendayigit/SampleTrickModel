@@ -1,3 +1,8 @@
+/*************************************************************************
+PURPOSE: ( A sample trick model created using only cpp. ModelX. )
+PROGRAMMERS:
+    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
+**************************************************************************/
 #ifndef MODELX_HPP
 #define MODELX_HPP
 
