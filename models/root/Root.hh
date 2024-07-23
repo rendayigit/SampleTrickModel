@@ -5,11 +5,12 @@ LIBRARY DEPENDENCIES:
 PROGRAMMERS:
     (((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024)
 **************************************************************************/
-#ifndef ROOT_HPP
-#define ROOT_HPP
+#ifndef ROOT_HH
+#define ROOT_HH
 
-#include "modelX/ModelX.hpp"
-#include "modelY/ModelY.hpp"
+#include "modelX/ModelX.hh"
+#include "modelY/ModelY.hh"
+#include <iostream>
 
 class Root {
 public:
@@ -22,12 +23,22 @@ public:
   }
 
   void init() {
-    modelX->default_data();
-    modelX->init();
+    modelX = new ModelX();
+    modelY = new ModelY();
+
+    modelX->a = 24;
+
+  };
+
+  void scheduled() {
+    modelX->a += 1;
+    std::cout<< "counter a -> @"<< modelX->a;
+    std::cout<< " now\n";
+
   }
 
-private:
-  Root() : modelX(new ModelX), modelY(new ModelY) {}
+  // private:
+  //   Root() : modelX(new ModelX), modelY(new ModelY) {}
 };
 
-#endif // ROOT_HPP
+#endif // ROOT_HH

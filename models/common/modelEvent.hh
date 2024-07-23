@@ -4,8 +4,8 @@ PROGRAMMERS:
     (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
 **************************************************************************/
 
-#ifndef MODELEVENT_HPP
-#define MODELEVENT_HPP
+#ifndef MODELEVENT_HH
+#define MODELEVENT_HH
 
 #include "trick/Event.hh"
 #include "trick/EventManager_c_intf.hh"
@@ -36,4 +36,4 @@ private:
   std::function<void()> m_eventFunction;
 };
 
-#endif // MODELEVENT_HPP
+#endif // MODELEVENT_HH

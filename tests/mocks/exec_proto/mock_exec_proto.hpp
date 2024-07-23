@@ -1,7 +1,7 @@
 // This file contains functions that manupulate the mocked functions defined in exec_proto.h
 
-#ifndef MOCK_EXEC_PROTO_HPP
-#define MOCK_EXEC_PROTO_HPP
+#ifndef MOCK_EXEC_PROTO_HH
+#define MOCK_EXEC_PROTO_HH
 
 extern double simTime;
 

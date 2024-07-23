@@ -1,6 +1,6 @@
 // This file mocks the functions defined in exec_proto.h
 
-#include "mock_exec_proto.hpp"
+#include "mock_exec_proto.hh"
 #include "sim_services/Executive/include/exec_proto.h"
 
 double simTime = 0.0;

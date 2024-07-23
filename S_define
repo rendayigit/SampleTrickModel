@@ -9,7 +9,10 @@ LIBRARY DEPENDENCIES:
     )
 
 PROGRAMMERS:
-    (((Renda Yiğit) (Turkish Aerospace) (01 July 2024)
+    (
+        ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
+        ((Yusuf Can Anar) (Turkish Aerospace) (11 July 2024))
+    )
 *************************************************************/
 
 // TODO - Review these:
@@ -35,17 +38,16 @@ PROGRAMMERS:
 #include "sim_objects/default_trick_sys.sm"
 // #include "sim_objects/CivetServer.sm"
 
-##include "root/Root.hpp"
-##include "common/DataFlow.hpp"
-##include "common/InFlow.hpp"
-##include "common/OutFlow.hpp"
+##include "root/Root.hh"
 
-class RootSimObject : public Trick::SimObject {
-    public:
+    class RootSimObject : public Trick::SimObject {
+public:
+  //   Root root;
 
-    RootSimObject() {
-        ("initialization")   Root::getInstance().init() ;
-    }
+  RootSimObject() {
+    ("initialization") Root::getInstance().init();
+    (1, "scheduled") Root::getInstance().scheduled();
+  }
 };
 
 RootSimObject rootSO;

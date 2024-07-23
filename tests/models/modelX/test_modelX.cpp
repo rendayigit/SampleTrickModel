@@ -1,5 +1,5 @@
-#include "ModelX.hpp"
-#include "mocks/exec_proto/mock_exec_proto.hpp"
+#include "ModelX.hh"
+#include "mocks/exec_proto/mock_exec_proto.hh"
 #include <gtest/gtest.h>
 
 TEST(ModelX, Addition) {

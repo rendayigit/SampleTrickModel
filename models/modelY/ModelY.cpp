@@ -1,4 +1,4 @@
-#include "ModelY.hpp"
+#include "ModelY.hh"
 #include <iostream>
 
 void ModelY::update() {

@@ -7,14 +7,14 @@ PROGRAMMERS:
 
 ICG: (No)
 **************************************************************************/
-#ifndef MODELY_HPP
-#define MODELY_HPP
+#ifndef MODELY_HH
+#define MODELY_HH
 
-#include "common/InFlow.hpp"
+#include "common/InFlow.hh"
 class ModelY {
 public:
   InFlow<int> yData; /* -- */
   void update();
 };
 
-#endif // MODELY_HPP
+#endif // MODELY_HH
