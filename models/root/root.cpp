@@ -8,7 +8,11 @@ PROGRAMMERS:
 **************************************************************************/
 
 #include "root.hpp"
+#include "common/network/client/client.hpp"
 #include <iostream>
+#include <string>
+
+auto *client = new Client();
 
 Root::Root() : modelX(new ModelX()), modelY(new ModelY()) {
   std::cout << "Root object created \t\t\t\t@ " << exec_get_sim_time() << std::endl;
@@ -24,12 +28,15 @@ int Root::init() {
 
   // Connection establishment must done after all models including root are instantiated.
   modelX->establishConnections();
+  client->connect("127.0.0.1", 1234);
+  client->transmit("Deneme!\n");
 
   return 0;
 }
 
 int Root::scheduled() {
   std::cout << "Scheduled Entered \t\t\t\t@ " << exec_get_sim_time() << std::endl;
+  client->transmit(std::to_string(exec_get_sim_time()) + "\n");
   return 0;
 }
 

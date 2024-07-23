@@ -12,4 +12,5 @@
     "clangd.onConfigChanged": "restart",
     "testMate.cpp.test.executables": "{tests}/**/*{tests}*",
     "cmake.ignoreCMakeListsMissing": true,
+    "cmake.configureOnOpen": false,
 }
