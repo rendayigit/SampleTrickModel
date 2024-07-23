@@ -1,10 +1,3 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model created using only cpp. ModelX. )
-LIBRARY DEPENDENCIES:
-    ((modelX.o))
-PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
-**************************************************************************/
 #include "modelX.hpp"
 #include "common/modelEvent.hpp"
 #include "root/root.hpp"

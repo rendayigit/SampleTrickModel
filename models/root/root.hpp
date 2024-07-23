@@ -22,6 +22,7 @@ public:
     return instance;
   }
 
+  int test; 
   // Model instances
   ModelX *modelX;
   ModelY *modelY;

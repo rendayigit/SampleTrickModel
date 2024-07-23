@@ -1,12 +1,3 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model. See ModelX for more details. )
-LIBRARY DEPENDENCIES:
-    ((modelY.o))
-PROGRAMMERS:
-    (((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
-     ((Renda Yigit) (Turkish Aerospace) (09 July 2024)))
-**************************************************************************/
-
 #include "modelY.hpp"
 #include <iostream>
 

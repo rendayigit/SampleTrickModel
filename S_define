@@ -2,7 +2,13 @@
 PURPOSE:
     ( Trick models entry point. S_define file. )
 LIBRARY DEPENDENCIES:
-    ((root/root.hpp))
+    (
+        (common/network/client/client.cpp)
+        (modelX/modelX.cpp)
+        (modelY/modelY.cpp)
+        (math/math.cpp)
+        (root/root.cpp)
+    )
 PROGRAMMERS:
     ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 *************************************************************/

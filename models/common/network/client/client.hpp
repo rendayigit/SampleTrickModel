@@ -15,46 +15,16 @@ constexpr int RECEIVE_BUFFER_SIZE = 1024;
 
 class Client {
 public:
-  Client() : m_ioThread(1), m_ioWorker(m_ioContext), m_socket(m_ioContext) {}
+  Client();
 
-  Client(const Client &) = delete;
-  Client &operator=(const Client &) = delete;
-  Client(Client &&) = delete;
-  Client &operator=(Client &&) = delete;
+  // Client(const Client &) = delete;
+  // Client &operator=(const Client &) = delete;
+  // Client(Client &&) = delete;
+  // Client &operator=(Client &&) = delete;
 
-  virtual ~Client() {
-    if (not m_ioContext.stopped()) {
-      m_ioContext.stop();
-    }
+  virtual ~Client();
 
-    m_ioThread.join();
-  }
-
-  void connect(const std::string &serverAddress, uint16_t serverPort) {
-    if (isConnected()) {
-      std::cerr << "Failed to connect: Already connected to server" << '\n';
-      return;
-    }
-
-    post(m_ioThread, [this]() { m_ioContext.run(); });
-
-    io::ip::tcp::resolver resolver(m_ioContext);
-    io::ip::tcp::resolver::query query(serverAddress, std::to_string(serverPort));
-    boost::system::error_code errorCode;
-
-    io::connect(m_socket, resolver.resolve(query), errorCode);
-
-    if (not errorCode) {
-      onConnect();
-      scheduleRead();
-    } else {
-      std::cerr << "Failed to connect: " << errorCode.message() << '\n';
-
-      if (isConnected()) {
-        m_socket.close();
-      }
-    }
-  }
+  void connect(const std::string &serverAddress, uint16_t serverPort);
 
   void disconnect() {
     try {
