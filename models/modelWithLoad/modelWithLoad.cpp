@@ -7,8 +7,6 @@ PROGRAMMERS:
 
 #include <iostream>
 
-#include "sim_services/Executive/include/exec_proto.h"
-
 ModelWithLoad::ModelWithLoad() : Load("myConfigurationFile", "ModelWithLoad"), m_state(OFF) {}
 
 void ModelWithLoad::update() {
