@@ -9,7 +9,8 @@ PROGRAMMERS:
 #ifndef ROOT_HPP
 #define ROOT_HPP
 
-#include "math/math.hpp"
+#include "modelWithEvents/modelWithEvents.hpp"
+#include "modelWithLoad/modelWithLoad.hpp"
 #include "modelX/modelX.hpp"
 #include "modelY/modelY.hpp"
 
@@ -25,6 +26,8 @@ public:
   // Model instances
   ModelX *modelX;
   ModelY *modelY;
+  ModelWithLoad *modelWithLoad;
+  ModelWithEvents *modelWithEvents;
 
   /**
    * Trick data initialization function. This function is called at the beginning of the
