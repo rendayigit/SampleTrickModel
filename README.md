@@ -63,3 +63,14 @@ sudo apt install clang-tidy                                         # Install cl
 - `clean.sh`: Clean the unit tests.
 - `coverage.sh`: Generate unit test code coverage.
 - `run.sh`: Run the unit tests without code coverage.
+
+## Models
+
+| Model | Description |
+|----------|----------|
+| Root | The Root of all models. This model is a container of all other models. |
+| ModelWithEvents | A sample trick model to demonstrate events. |
+| ModelWithLoad | A sample trick model to demonstrate loads. |
+| ModelX and ModelY | Sample trick models created to demonstrate inter model communication between ModelX and ModelY. |
+| ModelDummy | A sample trick model that only showcases minimal sim features. |
+| Math | A model that doesn't really do much. It is only created to showcase unit test coverage analysis. |
