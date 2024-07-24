@@ -7,25 +7,10 @@ PROGRAMMERS:
 **************************************************************************/
 #include "modelX.hpp"
 #include "root/root.hpp"
-#include "sim_services/Executive/include/exec_proto.h"
-
 #include <iostream>
-#include <vector>
 
 ModelX::ModelX() {
-  a[0] = 0.0;
-  a[1] = 6578000.0;
-  b[0] = 7905.0;
-  b[1] = 0.0;
-  deneme = 0;
   c.setValue(900);
-
-  std::vector<int> myList;
-
-  // Notice clangd suggests using range-based for loop instead
-  for (int i = 0; i < myList.size(); i++) {
-    myList.at(i) = 0;
-  }
 
   // Notice establishConnections() must be called after all related models including root are
   // instantiated. Hence this function is called in Root::init().
@@ -49,5 +34,3 @@ void ModelX::establishConnections() {
   std::cout << "ModelY inFlow2 value: " << Root::getInstance().modelY->inFlow2.getValue()
             << std::endl;
 }
-
-double ModelX::getSimeTime() { return exec_get_sim_time(); }

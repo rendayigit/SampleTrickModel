@@ -1,3 +1,8 @@
+/*************************************************************************
+PURPOSE: ( A service that allows the usage of loads that use power and dissipate heat. )
+PROGRAMMERS:
+    ((Renda Yiğit) (Turkish Aerospace) (24 July 2024))
+**************************************************************************/
 #ifndef LOAD_HPP
 #define LOAD_HPP
 
@@ -14,7 +19,7 @@ public:
   }
 
 protected:
-  double m_maxCurrentConsumption{};    /* A    Max Current Consumption */
+  double m_maxCurrentConsumption{5.5}; /* A    Max Current Consumption */
   double m_maxVoltageConsumption{};    /* V    Max Voltage Consumption */
   double m_maxHeatDissipation{};       /* W    Max Heat Dissipation */
   double m_minCurrentConsumption{};    /* A    Min Current Consumption */

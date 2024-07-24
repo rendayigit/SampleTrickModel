@@ -8,10 +8,11 @@ PROGRAMMERS:
 **************************************************************************/
 
 #include "root.hpp"
-#include "modelX/modelX.hpp"
 #include <iostream>
 
-Root::Root() : modelX(new ModelX()), modelY(new ModelY()) {
+Root::Root()
+    : modelX(new ModelX), modelY(new ModelY), modelWithLoad(new ModelWithLoad),
+      modelWithEvents(new ModelWithEvents), modelDummy(new ModelDummy) {
   std::cout << "Root object created \t\t\t\t@ " << exec_get_sim_time() << std::endl;
 };
 

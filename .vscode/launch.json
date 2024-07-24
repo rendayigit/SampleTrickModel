@@ -13,7 +13,7 @@
             "name": "Simulation",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/S_main_Linux_11.4_x86_64.exe",
+            "program": "${workspaceFolder}/S_main_Linux_13.2_x86_64.exe",
             "args": ["RUN_test/input.py"],
             "cwd": "${workspaceFolder}/"
         }
