@@ -2,7 +2,14 @@
 PURPOSE:
     ( Trick models entry point. S_define file. )
 LIBRARY DEPENDENCIES:
-    ((root/root.hpp))
+    (
+        (root/root.hpp)
+        (modelX/modelX.cpp)
+        (modelY/modelY.cpp)
+        (modelWithLoad/modelWithLoad.cpp)
+        (modelWithEvents/modelWithEvents.cpp)
+        (modelDummy/modelDummy.cpp)
+    )
 PROGRAMMERS:
     ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 *************************************************************/
@@ -35,11 +42,14 @@ PROGRAMMERS:
 class RootSimObject : public Trick::SimObject {
     public:
 
+    // Required for variable server.
+    Root root = Root::getInstance();
+
     RootSimObject() {
-        ("default_data")     Root::getInstance().default_data() ;
-        ("initialization")   Root::getInstance().init() ;
-        (1.0 , "scheduled")  Root::getInstance().scheduled() ;
-        ("shutdown")         Root::getInstance().shutdown() ;
+        ("default_data")     root.default_data() ;
+        ("initialization")   root.init() ;
+        (1.0 , "scheduled")  root.scheduled() ;
+        ("shutdown")         root.shutdown() ;
     }
 };
 
