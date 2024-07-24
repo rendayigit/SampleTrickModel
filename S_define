@@ -4,6 +4,7 @@ PURPOSE:
 LIBRARY DEPENDENCIES:
     (
         (common/network/client/client.cpp)
+        (common/network/server/server.cpp)
         (modelX/modelX.cpp)
         (modelY/modelY.cpp)
         (math/math.cpp)

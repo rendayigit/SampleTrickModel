@@ -1,3 +1,9 @@
+/*************************************************************************
+PURPOSE: ( TCP Server )
+PROGRAMMERS:
+    (((Yusuf Can Anar) (Turkish Aerospace) (23 July 2024))
+     ((Renda Yigit) (Turkish Aerospace) (09 July 2024)))
+**************************************************************************/
 #ifndef SERVER_HPP
 #define SERVER_HPP
 
