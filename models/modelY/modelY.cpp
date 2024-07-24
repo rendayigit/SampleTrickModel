@@ -1,10 +1,8 @@
 /*************************************************************************
-PURPOSE: ( A sample trick model. See ModelX for more details. )
-LIBRARY DEPENDENCIES:
-    ((modelY.o))
+PURPOSE: ( A sample trick model created to demonstrate inter model communication between ModelX and
+ModelY.)
 PROGRAMMERS:
-    (((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
-     ((Renda Yigit) (Turkish Aerospace) (09 July 2024)))
+    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 **************************************************************************/
 
 #include "modelY.hpp"

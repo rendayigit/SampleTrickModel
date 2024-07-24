@@ -4,6 +4,8 @@ PURPOSE:
 LIBRARY DEPENDENCIES:
     (
         (root/root.hpp)
+        (modelX/modelX.cpp)
+        (modelY/modelY.cpp)
         (modelWithLoad/modelWithLoad.cpp)
         (modelWithEvents/modelWithEvents.cpp)
         (modelDummy/modelDummy.cpp)

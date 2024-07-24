@@ -1,7 +1,6 @@
 /*************************************************************************
-PURPOSE: ( A sample trick model created using only cpp. ModelX. )
-LIBRARY DEPENDENCIES:
-    ((modelX.o))
+PURPOSE: ( A sample trick model created to demonstrate inter model communication between ModelX and
+ModelY.)
 PROGRAMMERS:
     ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 **************************************************************************/
