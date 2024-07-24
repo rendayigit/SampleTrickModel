@@ -8,6 +8,7 @@ PROGRAMMERS:
 **************************************************************************/
 
 #include "root.hpp"
+#include "modelX/modelX.hpp"
 #include <iostream>
 
 Root::Root() : modelX(new ModelX()), modelY(new ModelY()) {
@@ -30,6 +31,13 @@ int Root::init() {
 
 int Root::scheduled() {
   std::cout << "Scheduled Entered \t\t\t\t@ " << exec_get_sim_time() << std::endl;
+
+  if (modelX->getState() == ModelX::ON) {
+    modelX->turnOff();
+  } else {
+    modelX->turnOn();
+  }
+
   return 0;
 }
 

@@ -14,12 +14,13 @@ PROGRAMMERS:
 
 #include "sim_services/Executive/include/exec_proto.h"
 
-ModelX::ModelX() {
+ModelX::ModelX() : Load("myConfigurationFile", "modelX") {
   a[0] = 0.0;
   a[1] = 6578000.0;
   b[0] = 7905.0;
   b[1] = 0.0;
   deneme = 0;
+  m_state = OFF;
   c.setValue(900);
 
   std::vector<int> myList;
@@ -107,6 +108,44 @@ void ModelX::establishConnections() {
             << std::endl;
   std::cout << "ModelY inFlow2 value: " << Root::getInstance().modelY->inFlow2.getValue()
             << std::endl;
+}
+
+void ModelX::update() {
+  switch (m_state) {
+  case ON:
+    m_activeCurrentConsumption = m_maxCurrentConsumption;
+    m_activeVoltageConsumption = m_maxVoltageConsumption;
+    m_activeHeatDissipation = m_maxHeatDissipation;
+    break;
+  case OFF:
+    m_activeCurrentConsumption = m_minCurrentConsumption;
+    m_activeVoltageConsumption = m_minVoltageConsumption;
+    m_activeHeatDissipation = m_minHeatDissipation;
+    break;
+  }
+
+  std::cout << "ModelX state: " << m_state << " current consumption: " << m_activeCurrentConsumption
+            << std::endl;
+}
+
+void ModelX::turnOn() {
+  if (m_state == ON) {
+    return;
+  }
+
+  m_state = ON;
+
+  update();
+}
+
+void ModelX::turnOff() {
+  if (m_state == OFF) {
+    return;
+  }
+
+  m_state = OFF;
+
+  update();
 }
 
 double ModelX::getSimeTime() { return exec_get_sim_time(); }
