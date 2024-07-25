@@ -1,8 +1,3 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model to demonstrate loads. )
-PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (24 July 2024))
-**************************************************************************/
 #include "modelWithLoad.hpp"
 
 #include <iostream>

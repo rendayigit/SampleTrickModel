@@ -1,8 +1,3 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model that only showcases minimal sim features. )
-PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
-**************************************************************************/
 #include "modelDummy.hpp"
 #include "sim_services/Executive/include/exec_proto.h"
 

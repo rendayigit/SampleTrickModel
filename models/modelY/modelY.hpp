@@ -14,7 +14,6 @@ PROGRAMMERS:
 
 class ModelY {
 public:
-
   // This variable is connected without the update callback function.
   InFlow<int> inFlow1; /* -- */
 

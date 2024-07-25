@@ -1,8 +1,3 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model to demonstrate events. )
-PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (24 July 2024))
-**************************************************************************/
 #include "modelWithEvents.hpp"
 #include "common/modelEvent.hpp"
 #include <iostream>
