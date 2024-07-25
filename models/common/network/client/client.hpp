@@ -11,14 +11,8 @@ PROGRAMMERS:
 
 #include <boost/asio.hpp>
 #include <boost/asio/io_context.hpp>
-#include <boost/asio/io_service.hpp>
-#include <boost/asio/read_until.hpp>
 #include <boost/asio/streambuf.hpp>
-#include <boost/property_tree/json_parser.hpp>
-#include <cstdint>
-#include <iostream>
 
-namespace io = boost::asio;
 constexpr int RECEIVE_BUFFER_SIZE = 1024;
 
 class Client {

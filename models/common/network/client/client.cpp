@@ -1,5 +1,12 @@
 #include "client.hpp"
 
+#include <boost/asio/io_service.hpp>
+#include <boost/asio/read_until.hpp>
+#include <cstdint>
+#include <iostream>
+
+namespace io = boost::asio;
+
 Client::Client() : m_ioThread(1), m_ioWorker(m_ioContext), m_socket(m_ioContext) {}
 
 Client::~Client() {
