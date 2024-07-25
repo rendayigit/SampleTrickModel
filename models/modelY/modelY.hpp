@@ -15,10 +15,10 @@ PROGRAMMERS:
 class ModelY {
 public:
   // This variable is connected without the update callback function.
-  InFlow<int> inFlow1; /* -- */
+  InFlow<int> inFlow1; /* cm    sample inFlow value */
 
   // This variable is connected with the update callback function. See constructor.
-  InFlow<int> inFlow2; /* -- */
+  InFlow<int> inFlow2; /* cm    sample inFlow value */
 
   ModelY();
 };
