@@ -19,7 +19,7 @@ public:
   }
 
 protected:
-  double m_maxCurrentConsumption{5.5}; /* A    Max Current Consumption */
+  double m_maxCurrentConsumption{5.5}; /* A    Max Current Consumption */ // TODO (renda): set to 0.0
   double m_maxVoltageConsumption{};    /* V    Max Voltage Consumption */
   double m_maxHeatDissipation{};       /* W    Max Heat Dissipation */
   double m_minCurrentConsumption{};    /* A    Min Current Consumption */
