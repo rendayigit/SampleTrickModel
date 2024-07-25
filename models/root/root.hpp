@@ -9,6 +9,8 @@ PROGRAMMERS:
 #ifndef ROOT_HPP
 #define ROOT_HPP
 
+#include "common/network/client/client.hpp"
+#include "common/network/server/server.hpp"
 #include "modelDummy/modelDummy.hpp"
 #include "modelWithEvents/modelWithEvents.hpp"
 #include "modelWithLoad/modelWithLoad.hpp"
@@ -30,6 +32,9 @@ public:
   ModelWithLoad *modelWithLoad;
   ModelWithEvents *modelWithEvents;
   ModelDummy *modelDummy;
+  Server *server;
+  Client *client1;
+  Client *client2;
 
   /**
    * Trick data initialization function. This function is called at the beginning of the
