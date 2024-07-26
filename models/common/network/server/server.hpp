@@ -17,7 +17,7 @@ class Server;
 
 class Session : public std::enable_shared_from_this<Session> {
 public:
-  explicit Session(boost::asio::ip::tcp::socket socket, Server *server);
+  explicit Session(Server *server, boost::asio::ip::tcp::socket *socket);
 
   void run();
 
@@ -29,7 +29,7 @@ private:
   void readHandler(const boost::system::error_code &errorCode);
 
   Server *m_server;
-  boost::asio::ip::tcp::socket m_socket;
+  boost::asio::ip::tcp::socket *m_socket;
   boost::asio::streambuf m_buffer;
 };
 
