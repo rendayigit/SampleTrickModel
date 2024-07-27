@@ -5,6 +5,7 @@ PROGRAMMERS:
       (Yusuf Can Anar) (Turkish Aerospace) (23 July 2024)
       (Renda Yigit) (Turkish Aerospace) (09 July 2024)
     )
+ICG: (No)
 **************************************************************************/
 #ifndef SERVER_HPP
 #define SERVER_HPP
@@ -13,11 +14,13 @@ PROGRAMMERS:
 #include <boost/asio/io_context.hpp>
 #include <boost/asio/streambuf.hpp>
 
+#ifndef SWIG
+
 class Server;
 
 class Session : public std::enable_shared_from_this<Session> {
 public:
-  explicit Session(Server *server, boost::asio::ip::tcp::socket *socket);
+  explicit Session(Server *server, boost::asio::ip::tcp::socket socket);
 
   void run();
 
@@ -29,7 +32,7 @@ private:
   void readHandler(const boost::system::error_code &errorCode);
 
   Server *m_server;
-  boost::asio::ip::tcp::socket *m_socket;
+  boost::asio::ip::tcp::socket m_socket;
   boost::asio::streambuf m_buffer;
 };
 
@@ -65,5 +68,26 @@ private:
   boost::asio::ip::tcp::acceptor m_acceptor;
   std::vector<boost::asio::ip::tcp::socket *> m_clients;
 };
+
+#else
+
+class Server : public std::enable_shared_from_this<Server> {
+public:
+  explicit Server(uint16_t port) {}
+
+  void start() {}
+  void stop() {}
+
+  static void transmit(boost::asio::ip::tcp::socket *socket, const std::string &message) {}
+  void broadcast(const std::string &message) {}
+
+  virtual void onConnect(boost::asio::ip::tcp::socket *socket) {}
+  virtual void onDisconnect(boost::asio::ip::tcp::socket *socket) {}
+  virtual void onReceive(boost::asio::ip::tcp::socket *socket, const std::string &message) {}
+
+  std::vector<boost::asio::ip::tcp::socket *> getClients() const { }
+};
+
+#endif
 
 #endif // SERVER_HPP

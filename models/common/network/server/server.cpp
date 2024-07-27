@@ -1,6 +1,7 @@
 #include "server.hpp"
 #include <iostream>
 
+#ifndef SWIG
 namespace ip = boost::asio::ip;
 
 Server::Server(uint16_t port)
@@ -42,7 +43,7 @@ void Server::stop() {
 void Server::doAccept() {
   m_acceptor.async_accept([this](boost::system::error_code errorCode, ip::tcp::socket socket) {
     if (not errorCode) {
-      std::make_shared<Session>(this, &socket)->run();
+      std::make_shared<Session>(this, std::move(socket))->run();
     } else if (errorCode == boost::asio::error::operation_aborted) {
       std::cout << "Server stopped\n";
     } else {
@@ -84,9 +85,9 @@ void Server::onReceive(ip::tcp::socket *socket, const std::string &message) {
             << " from: " << socket->remote_endpoint().address().to_string() << '\n';
 }
 
-Session::Session(Server *server, ip::tcp::socket *socket)
-    : m_server(server), m_socket(socket) {
-  addClient(*m_server, m_socket);
+Session::Session(Server *server, ip::tcp::socket socket)
+    : m_server(server), m_socket(std::move(socket)) {
+  addClient(*m_server, &m_socket);
 }
 
 void Session::run() { scheduleRead(); }
@@ -112,7 +113,7 @@ void Session::scheduleRead() {
   // TODO(renda): check if self is necessary
   auto self(shared_from_this());
   boost::asio::async_read_until(
-      *m_socket, m_buffer, "\0",
+      m_socket, m_buffer, "\0",
       [this, self](boost::system::error_code errorCode, std::size_t /*bytesTransferred*/) {
         readHandler(errorCode);
       });
@@ -121,13 +122,14 @@ void Session::scheduleRead() {
 void Session::readHandler(const boost::system::error_code &errorCode) {
   if (not errorCode) {
     std::string data{std::istreambuf_iterator<char>(&m_buffer), std::istreambuf_iterator<char>()};
-    m_server->onReceive(m_socket, data);
+    m_server->onReceive(&m_socket, data);
     scheduleRead();
   } else if (errorCode == boost::asio::error::eof) {
-    removeClient(*m_server, m_socket);
+    removeClient(*m_server, &m_socket);
   } else if (errorCode == boost::asio::error::operation_aborted) {
     std::cout << "Server stopped\n";
   } else {
     std::cerr << "Error receiving from client: " << errorCode.message() << '\n';
   }
 }
+#endif
