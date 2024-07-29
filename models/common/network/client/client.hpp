@@ -1,5 +1,5 @@
 /*************************************************************************
-PURPOSE: ( Tcp client )
+PURPOSE: ( Allows the creation of a TCP client. )
 PROGRAMMERS:
     (
       ((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))

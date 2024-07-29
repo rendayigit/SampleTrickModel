@@ -1,5 +1,5 @@
 /*************************************************************************
-PURPOSE: ( TCP Server )
+PURPOSE: ( Allows the creation of a TCP server. )
 PROGRAMMERS:
     (
       (Yusuf Can Anar) (Turkish Aerospace) (23 July 2024)
