@@ -28,7 +28,6 @@ void Server::start() {
 
 void Server::stop() {
   try {
-    std::lock_guard<std::mutex> lock(m_clientsMutex);
     for (auto *client : m_clients) {
       Session::removeClient(*this, client);
     }
