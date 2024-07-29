@@ -2,7 +2,10 @@
 PURPOSE: ( A sample trick model created to demonstrate inter model communication between ModelX and
 ModelY.)
 PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
+    (
+      (Yusuf Can Anar) (Turkish Aerospace) (09 July 2024)
+      (Renda Yiğit) (Turkish Aerospace) (01 July 2024)
+    )
 **************************************************************************/
 #ifndef MODELY_HPP
 #define MODELY_HPP
@@ -11,12 +14,11 @@ PROGRAMMERS:
 
 class ModelY {
 public:
-
   // This variable is connected without the update callback function.
-  InFlow<int> inFlow1; /* -- */
+  InFlow<int> inFlow1; /* cm    sample inFlow value */
 
   // This variable is connected with the update callback function. See constructor.
-  InFlow<int> inFlow2; /* -- */
+  InFlow<int> inFlow2; /* cm    sample inFlow value */
 
   ModelY();
 };

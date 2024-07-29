@@ -29,7 +29,7 @@ public:
    */
   void turnOff();
 
-  [[nodiscard]] ModelWithLoadStates getState() const { return m_state; }
+  ModelWithLoadStates getState() const { return m_state; }
 
 private:
   ModelWithLoadStates m_state;

@@ -11,7 +11,7 @@ PROGRAMMERS:
 
 class ModelX {
 public:
-  OutFlow<int> c; /* cm    sample c value */
+  OutFlow<int> outFlow; /* cm    sample outFlow value */
 
   ModelX();
 

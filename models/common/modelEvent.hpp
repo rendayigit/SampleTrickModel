@@ -3,7 +3,6 @@ PURPOSE: ( A service that allows the creation of events that can be triggered by
 PROGRAMMERS:
     ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 **************************************************************************/
-
 #ifndef MODELEVENT_HPP
 #define MODELEVENT_HPP
 

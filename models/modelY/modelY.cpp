@@ -1,10 +1,3 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model created to demonstrate inter model communication between ModelX and
-ModelY.)
-PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
-**************************************************************************/
-
 #include "modelY.hpp"
 #include <iostream>
 

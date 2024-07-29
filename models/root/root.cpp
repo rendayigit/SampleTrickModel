@@ -1,18 +1,11 @@
-/*************************************************************************
-PURPOSE: ( The Root of all models. This model is a container of all other models. )
-LIBRARY DEPENDENCIES:
-    ((root.o))
-PROGRAMMERS:
-    (((Yusuf Can Anar) (Turkish Aerospace) (09 July 2024))
-     ((Renda Yigit) (Turkish Aerospace) (09 July 2024)))
-**************************************************************************/
-
 #include "root.hpp"
 #include <iostream>
+#include <string>
 
 Root::Root()
     : modelX(new ModelX), modelY(new ModelY), modelWithLoad(new ModelWithLoad),
-      modelWithEvents(new ModelWithEvents), modelDummy(new ModelDummy) {
+      modelWithEvents(new ModelWithEvents), modelDummy(new ModelDummy), server(new Server(3310)),
+      client1(new Client), client2(new Client) {
   std::cout << "Root object created \t\t\t\t@ " << exec_get_sim_time() << std::endl;
 };
 
@@ -33,6 +26,17 @@ int Root::init() {
   // Connection establishment must done after all models including root are instantiated.
   modelX->establishConnections();
 
+  // Start a TCP server.
+  server->start();
+
+  // Connect a client to the TCP server and transmit a test message.
+  client1->connect("127.0.0.1", 3310);
+  client1->transmit("Test Message!\n");
+
+  // Connect another client to the TCP server and transmit a test message.
+  client2->connect("127.0.0.1", 3310);
+  client2->transmit("Test Message 2!\n");
+
   return 0;
 }
 
@@ -46,10 +50,21 @@ int Root::scheduled() {
     modelWithLoad->turnOn();
   }
 
+  client1->transmit(std::to_string(exec_get_sim_time()) + "\n");
+
+  // Transmit the number of connected clients.
+  std::cout << "Online : " << server->getClients().size() << std::endl;
+
+  // Broadcast a message to all connected clients.
+  server->broadcast("May the force be with you all clients");
+
   return 0;
 }
 
 int Root::shutdown() {
   std::cout << "Shutdown Entered \t\t\t\t@ " << exec_get_sim_time() << std::endl;
+  client1->disconnect();
+  client2->disconnect();
+  server->stop();
   return 0;
 }
