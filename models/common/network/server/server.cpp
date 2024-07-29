@@ -1,5 +1,6 @@
 #include "server.hpp"
 #include <iostream>
+#include <utility>
 
 #ifndef SWIG
 namespace ip = boost::asio::ip;
@@ -27,6 +28,7 @@ void Server::start() {
 
 void Server::stop() {
   try {
+    std::lock_guard<std::mutex> lock(m_clientsMutex);
     for (auto *client : m_clients) {
       Session::removeClient(*this, client);
     }
@@ -67,6 +69,7 @@ void Server::transmit(ip::tcp::socket *socket, const std::string &message) {
 }
 
 void Server::broadcast(const std::string &message) {
+  std::lock_guard<std::mutex> lock(m_clientsMutex);
   for (auto *client : m_clients) {
     transmit(client, message);
   }
@@ -85,6 +88,11 @@ void Server::onReceive(ip::tcp::socket *socket, const std::string &message) {
             << " from: " << socket->remote_endpoint().address().to_string() << '\n';
 }
 
+std::vector<ip::tcp::socket *> Server::getClients() const {
+  std::lock_guard<std::mutex> lock(m_clientsMutex);
+  return m_clients;
+}
+
 Session::Session(Server *server, ip::tcp::socket socket)
     : m_server(server), m_socket(std::move(socket)) {
   addClient(*m_server, &m_socket);
@@ -93,11 +101,13 @@ Session::Session(Server *server, ip::tcp::socket socket)
 void Session::run() { scheduleRead(); }
 
 void Session::addClient(Server &server, ip::tcp::socket *socket) {
+  std::lock_guard<std::mutex> lock(server.m_clientsMutex);
   server.onConnect(socket);
   server.m_clients.push_back(socket);
 }
 
 void Session::removeClient(Server &server, ip::tcp::socket *socket) {
+  std::lock_guard<std::mutex> lock(server.m_clientsMutex);
   server.onDisconnect(socket);
 
   if (socket->is_open()) {

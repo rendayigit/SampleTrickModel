@@ -13,6 +13,9 @@ ICG: (No)
 #include <boost/asio.hpp>
 #include <boost/asio/io_context.hpp>
 #include <boost/asio/streambuf.hpp>
+#include <memory>
+#include <mutex>
+#include <vector>
 
 #ifndef SWIG
 
@@ -55,7 +58,7 @@ public:
   virtual void onDisconnect(boost::asio::ip::tcp::socket *socket);
   virtual void onReceive(boost::asio::ip::tcp::socket *socket, const std::string &message);
 
-  std::vector<boost::asio::ip::tcp::socket *> getClients() const { return m_clients; }
+  std::vector<boost::asio::ip::tcp::socket *> getClients() const;
 
 private:
   void doAccept();
@@ -67,6 +70,7 @@ private:
   boost::asio::io_context m_ioContext;
   boost::asio::ip::tcp::acceptor m_acceptor;
   std::vector<boost::asio::ip::tcp::socket *> m_clients;
+  mutable std::mutex m_clientsMutex;
 };
 
 #else
