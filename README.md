@@ -65,13 +65,23 @@ sudo apt install clang-tidy                                         # Install cl
 - `coverage.sh`: Generate unit test code coverage.
 - `run.sh`: Run the unit tests without code coverage.
 
+## Services
+
+| Service | Description |
+|----------|----------|
+| [Client](models/common/network/client/client.hpp) | Allows the creation of a TCP client. |
+| [Server](models/common/network/server/server.hpp) | Allows the creation of a TCP server. |
+| [Data Flow](models/common/dataFlow.hpp) | A variable type that allows the flow of data between models. |
+| [Load](models/common/load.hpp) | A service that allows the usage of loads that use power and dissipate heat. |
+| [Model Event](models/common/modelEvent.hpp) | A service that allows the creation of events that can be triggered by the simulator. |
+
 ## Models
 
 | Model | Description |
 |----------|----------|
-| Root | The Root of all models. This model is a container of all other models. |
-| ModelWithEvents | A sample trick model to demonstrate events. |
-| ModelWithLoad | A sample trick model to demonstrate loads. |
-| ModelX and ModelY | Sample trick models created to demonstrate inter model communication between ModelX and ModelY. |
-| ModelDummy | A sample trick model that only showcases minimal sim features. |
-| Math | A model that doesn't really do much. It is only created to showcase unit test coverage analysis. |
+| [Root](models/root/root.hpp) | The Root of all models. This model is a container of all other models. |
+| [ModelWithEvents](models/modelWithEvents/modelWithEvents.hpp) | A sample trick model to demonstrate events. |
+| [ModelWithLoad](models/modelWithLoad/modelWithLoad.hpp) | A sample trick model to demonstrate loads. |
+| [ModelX](models/modelX/modelX.hpp) and [ModelY](models/modelY/modelY.hpp) | Sample trick models created to demonstrate inter model communication between ModelX and ModelY. |
+| [ModelDummy](models/modelDummy/modelDummy.hpp) | A sample trick model that only showcases minimal sim features. |
+| [Math](models/math/math.hpp) | A model that doesn't really do much. It is only created to showcase unit test coverage analysis. |
