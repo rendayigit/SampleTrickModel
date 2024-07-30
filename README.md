@@ -11,10 +11,11 @@ This is a sample simulation model created to run on [NASA's Trick simulator](htt
 1. Make sure to add `${HOME}/trick/bin` to the `PATH` environment variable.
 1. Make sure to create a permanent envirtonment variable with the value of `${HOME}/trick` named `TRICK_HOME`.
 
-### Install GNU compilers
+### Install GNU compilers and libraries
 
 ``` bash
 sudo apt install build-essential                                    # Install GNU compilers.
+sudo apt install libboost-all-dev                                   # Install boost libraries.
 ```
 
 ### Install clangd language server
