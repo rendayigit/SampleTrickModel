@@ -1,5 +1,7 @@
 # SampleTrickModel
 
+[![Ubuntu CI](https://github.com/rendayigit/SampleTrickModel/actions/workflows/Unit%20Tests.yml/badge.svg)](https://github.com/rendayigit/SampleTrickModel/actions/workflows/Unit%20Tests.yml)
+
 This is a sample simulation model created to run on [NASA's Trick simulator](https://github.com/nasa/trick). This repository also contains unit tests and coverage infrastructure.
 
 ## Usage
