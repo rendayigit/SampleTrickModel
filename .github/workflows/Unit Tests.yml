@@ -28,6 +28,12 @@ jobs:
         make                                                                # Compile gtest
         sudo make install                                                   # Install in /usr/local/ by default
 
+    - name: Clone NASA Trick 
+      run:  |
+        cd ${HOME}
+        git clone https://github.com/nasa/trick
+        echo "TRICK_HOME=${HOME}/trick/" >> $GITHUB_ENV
+        
     - name: Checkout
       uses: actions/checkout@v3
 
