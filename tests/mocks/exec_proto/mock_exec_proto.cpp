@@ -1,13 +1,9 @@
 // This file mocks the functions defined in exec_proto.h
 
-#include "mock_exec_proto.hpp"
-#include "sim_services/Executive/include/exec_proto.h"
+#include "mocks/exec_proto/mock_exec_proto.hpp"
 
 double simTime = 0.0;
-
-namespace Trick {
-class Event {};
-} // namespace Trick
+bool isProgressingByEachSimTimeCall = false;
 
 /**
  * Returns mocked current simulation time. Use set_sim_time(double newTime) to set the new
@@ -15,10 +11,20 @@ class Event {};
  *
  * @return The mocked simulation time as a double.
  */
-double exec_get_sim_time(void) { return simTime; }
+double exec_get_sim_time(void) { // NOLINT(readability-identifier-naming)
+  if (isProgressingByEachSimTimeCall) {
+    simTime += TIME_PROGRESS;
+  }
 
-double event_manager_add_event(Trick::Event *in_event) { return 0.0; }
+  return simTime;
+}
 
-long long exec_get_time_tics(void) { return 0.0; } // TODO - improve return value
+long long exec_get_time_tics(void) { // NOLINT(readability-identifier-naming)
+  static long long ticks = 0;
+  return ++ticks;
+}
 
-int exec_get_time_tic_value(void) { return 0; } // TODO - improve return value
+int exec_get_time_tic_value(void) { // NOLINT(readability-identifier-naming)
+  static int ticks = 0;
+  return ++ticks;
+}
