@@ -9,10 +9,8 @@ PROGRAMMERS:
 #ifndef ROOT_HPP
 #define ROOT_HPP
 
-#include "common/network/client/client.hpp"
-#include "common/network/server/server.hpp"
 #include "modelDummy/modelDummy.hpp"
-#include "modelWithEvents/modelWithEvents.hpp"
+// #include "modelWithEvents/modelWithEvents.hpp"
 #include "modelWithLoad/modelWithLoad.hpp"
 #include "modelX/modelX.hpp"
 #include "modelY/modelY.hpp"
@@ -27,15 +25,11 @@ public:
   }
 
   // Model instances
-  ModelX *modelX;
-  ModelY *modelY;
-  ModelWithLoad *modelWithLoad;
-  ModelWithEvents *modelWithEvents;
-  ModelDummy *modelDummy;
-  Server *server;
-  Client *client1;
-  Client *client2;
-
+  ModelX modelX;
+  ModelY modelY;
+  ModelWithLoad modelWithLoad;
+  // ModelWithEvents modelWithEvents;
+  ModelDummy modelDummy;
   /**
    * Trick data initialization function. This function is called at the beginning of the
    * simulation before the initialization function. This function is used to set the internal

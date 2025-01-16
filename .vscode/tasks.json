@@ -9,12 +9,12 @@
                 "isDefault": true
             },
             "command": [
-                "chmod -R 777 ./scripts/;",
-                "./tests/scripts/clean.sh;", // TODO: Remove to speed up building
-                "./scripts/build.sh"
+                "chmod -R 777 ${workspaceFolder}/tests/scripts/;",
+                "${workspaceFolder}/tests/scripts/clean.sh;", // TODO: Remove to speed up building
+                "${workspaceFolder}/tests/scripts/build.sh"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/tests/"
+                "cwd": "${workspaceFolder}/"
             },
             "problemMatcher": "$gcc",
             "runOptions": {"reevaluateOnRerun": false},
@@ -24,11 +24,11 @@
             "type": "shell",
             "group": "test",
             "command": [
-                "chmod -R 777 ./tests/scripts/;",
-                "./scripts/run.sh"
+                "chmod -R 777 ${workspaceFolder}/tests/scripts/;",
+                "${workspaceFolder}/tests/scripts/run.sh"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/tests"
+                "cwd": "${workspaceFolder}/"
             },
             "runOptions": {"reevaluateOnRerun": false},
         },
@@ -40,7 +40,7 @@
                 "make clean; trick-CP; ./S_main_*.exe RUN_test/input.py",
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/"
             },
             "runOptions": {"reevaluateOnRerun": false},
         },
@@ -49,11 +49,11 @@
             "type": "shell",
             "group": "test",
             "command": [
-                "chmod -R 777 ./tests/scripts/;",
-                "./scripts/coverage.sh"
+                "chmod -R 777 ${workspaceFolder}/tests/scripts/;",
+                "${workspaceFolder}/tests/scripts/coverage.sh"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/tests"
+                "cwd": "${workspaceFolder}/"
             },
             "runOptions": {"reevaluateOnRerun": false},
         },
@@ -62,8 +62,8 @@
             "type": "shell",
             "group": "build",
             "command": [
-                "chmod -R 777 ./tests/scripts/;",
-                "./tests/scripts/clean.sh;",
+                "chmod -R 777 ${workspaceFolder}/tests/scripts/;",
+                "${workspaceFolder}/tests/scripts/clean.sh;",
                 "make spotless"
             ],
             "options": {
