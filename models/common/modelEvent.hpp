@@ -4,10 +4,10 @@ PURPOSE: ( A service that allows the creation of events that can be triggered by
 #ifndef MODELEVENT_HPP
 #define MODELEVENT_HPP
 
-#include "trick/Event.hh"
-#include "trick/EventManager_c_intf.hh"
 #include <functional>
 #include <utility>
+
+#include "trick/EventManager_c_intf.hh"
 
 #define SEC_TO_TICK(sec) sec * 1000000
 
@@ -27,7 +27,9 @@ public:
    *
    * @throws None
    */
-  void setEventFunction(std::function<void()> eventFunction) { m_eventFunction = std::move(eventFunction); }
+  void setEventFunction(std::function<void()> eventFunction) {
+    m_eventFunction = std::move(eventFunction);
+  }
 
   /**
    * Sets the trigger time for the event based on the input time. Trigger time is ignored if cycle

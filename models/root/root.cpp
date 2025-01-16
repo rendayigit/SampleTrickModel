@@ -20,13 +20,11 @@ int Root::initialization() {
   std::cout << "ModelY inFlow1 value: " << modelY.inFlow1.getValue() << std::endl;
   std::cout << "ModelY inFlow2 value: " << modelY.inFlow2.getValue() << std::endl;
 
-  // TODO: fix event checkpointability
-
   // Create a one shot event.
-  // modelWithEvents.createOneShotEvent();
+  modelWithEvents.createOneShotEvent();
 
   // Create a scheduled event.
-  // modelWithEvents.createScheduledEvent();
+  modelWithEvents.createScheduledEvent();
 
   return 0;
 }

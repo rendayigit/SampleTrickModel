@@ -20,6 +20,6 @@ public:
   void createScheduledEvent();
 
 private:
-  ModelEvent *m_oneShotEvent;
-  ModelEvent *m_scheduledEvent;
+  ModelEvent m_oneShotEvent;
+  ModelEvent m_scheduledEvent;
 };
