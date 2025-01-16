@@ -11,32 +11,7 @@ LIBRARY DEPENDENCIES:
         (modelWithEvents/modelWithEvents.cpp)
         (modelDummy/modelDummy.cpp)
     )
-PROGRAMMERS:
-    (
-        (Renda Yiğit) (Turkish Aerospace) (01 July 2024)
-        (Yusuf Can Anar) (Turkish Aerospace) (01 July 2024)
-    )
 *************************************************************/
-
-// TODO - Review these:
-// #define TRICK_NO_EXECUTIVE
-// #define TRICK_NO_MONTE_CARLO
-// #define TRICK_NO_MEMORY_MANAGER
-// #define TRICK_NO_CHECKPOINT_RESTART
-// #define TRICK_NO_SIE
-// #define TRICK_NO_COMMANDLINEARGUMENTS
-// #define TRICK_NO_MESSAGE
-// #define TRICK_NO_INPUTPROCESSOR
-// #define TRICK_NO_VARIABLE_SERVER
-// #define TRICK_NO_DATA_RECORD
-// #define TRICK_NO_REALTIME
-// #define TRICK_NO_FRAMELOG
-// #define TRICK_NO_MASTERSLAVE
-// #define TRICK_NO_INSTRUMENTATION
-// #define TRICK_NO_INTEGRATE
-// #define TRICK_NO_REALTIMEINJECTOR
-// #define TRICK_NO_ZEROCONF
-// #define TRICK_NO_UNITTEST
 
 #include "sim_objects/default_trick_sys.sm"
 // #include "sim_objects/CivetServer.sm"
@@ -44,17 +19,14 @@ PROGRAMMERS:
 ##include "root/root.hpp"
 
 class RootSimObject : public Trick::SimObject {
-    public:
+public:
+  // Required for variable server.
+  Root root;
 
-    // Required for variable server.
-    Root root = Root::getInstance();
-
-    RootSimObject() {
-        ("default_data")     root.default_data() ;
-        ("initialization")   root.init() ;
-        (1.0 , "scheduled")  root.scheduled() ;
-        ("shutdown")         root.shutdown() ;
-    }
+  RootSimObject() {
+    ("initialization")  root.initialization();
+    ("shutdown")        root.shutdown();
+  }
 };
 
-RootSimObject root;
+RootSimObject sim;

@@ -1,11 +1,8 @@
 /*************************************************************************
 PURPOSE: ( A sample trick model created to demonstrate inter model communication between ModelX and
 ModelY.)
-PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
 **************************************************************************/
-#ifndef MODELX_HPP
-#define MODELX_HPP
+#pragma once
 
 #include "common/dataFlow.hpp"
 
@@ -14,11 +11,4 @@ public:
   OutFlow<int> outFlow; /* cm    sample outFlow value */
 
   ModelX();
-
-  /**
-   * Establish connections between modelX and modelY.
-   */
-  void establishConnections();
 };
-
-#endif // MODELX_HPP
