@@ -1,21 +1,36 @@
 {
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "Unit Tests",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/tests/bin/tests",
-            "args": [],
-            "cwd": "${workspaceFolder}/tests/bin/"
-        },
-        {
-            "name": "Simulation",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/S_main_Linux_11.4_x86_64.exe",
-            "args": ["RUN_test/input.py"],
-            "cwd": "${workspaceFolder}/"
-        }
+      {
+        "name": "Unit Tests",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/tests/bin/tests",
+        "args": [],
+        "cwd": "${workspaceFolder}/tests/bin/",
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ]
+      },
+      {
+        "name": "Simulation",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/S_main_Linux_11.4_x86_64.exe",
+        "args": ["RUN_test/input.py"],
+        "cwd": "${workspaceFolder}/",
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ]
+      }
     ]
-}
+  }
+  

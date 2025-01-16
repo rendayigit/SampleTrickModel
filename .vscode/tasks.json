@@ -2,76 +2,99 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Unit Tests",
+            "label": "Unit Tests - Build",
             "type": "shell",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "command": [
-                "chmod -R 777 ${workspaceFolder}/tests/scripts/;",
-                "${workspaceFolder}/tests/scripts/clean.sh;", // TODO: Remove to speed up building
-                "${workspaceFolder}/tests/scripts/build.sh"
+                "chmod -R 777 ./scripts/;",
+                "./tests/scripts/clean.sh;", // TODO: Remove to speed up building
+                "./scripts/build.sh"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/"
+                "cwd": "${workspaceFolder}/tests/"
             },
             "problemMatcher": "$gcc",
             "runOptions": {"reevaluateOnRerun": false},
         },
         {
-            "label": "Run Unit Tests",
+            "label": "Unit Tests - Run",
             "type": "shell",
             "group": "test",
             "command": [
-                "chmod -R 777 ${workspaceFolder}/tests/scripts/;",
-                "${workspaceFolder}/tests/scripts/run.sh"
+                "chmod -R 777 ./tests/scripts/;",
+                "./scripts/run.sh"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/"
+                "cwd": "${workspaceFolder}/tests"
             },
             "runOptions": {"reevaluateOnRerun": false},
         },
         {
-            "label": "Build & Run Sim",
+            "label": "Simulation - Build",
             "type": "shell",
             "group": "test",
             "command": [
-                "make clean; trick-CP; ./S_main_*.exe RUN_test/input.py",
+                "trick-CP",
             ],
             "options": {
-                "cwd": "${workspaceFolder}/"
+                "cwd": "${workspaceFolder}"
             },
             "runOptions": {"reevaluateOnRerun": false},
         },
         {
-            "label": "Generate Coverage",
+            "label": "Simulation - Run",
             "type": "shell",
             "group": "test",
             "command": [
-                "chmod -R 777 ${workspaceFolder}/tests/scripts/;",
-                "${workspaceFolder}/tests/scripts/coverage.sh"
+                "./S_main_*.exe ./RUN_test/input.py",
             ],
             "options": {
-                "cwd": "${workspaceFolder}/"
+                "cwd": "${workspaceFolder}"
             },
             "runOptions": {"reevaluateOnRerun": false},
         },
         {
-            "label": "Clean All",
+            "label": "Simulation - Clean",
+            "type": "shell",
+            "group": "test",
+            "command": [
+                "make spotless",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "runOptions": {"reevaluateOnRerun": false},
+        },
+        {
+            "label": "Unit Tests - Coverage",
+            "type": "shell",
+            "group": "test",
+            "command": [
+                "chmod -R 777 ./tests/scripts/;",
+                "./scripts/coverage.sh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/tests"
+            },
+            "runOptions": {"reevaluateOnRerun": false},
+        },
+        {
+            "label": "Unit Tests - Clean",
             "type": "shell",
             "group": "build",
             "command": [
-                "chmod -R 777 ${workspaceFolder}/tests/scripts/;",
-                "${workspaceFolder}/tests/scripts/clean.sh;",
-                "make spotless"
+                "chmod -R 777 ./tests/scripts/;",
+                "./tests/scripts/clean.sh;",
             ],
             "options": {
                 "cwd": "${workspaceFolder}/"
             },
         },
         {
-            "label": "Run Trick TV GUI",
+            "label": "Simulation - Trick TV",
             "type": "shell",
             "group": "test",
             "command": [
@@ -82,7 +105,7 @@
             },
         },
         {
-            "label": "Run Trick Simulation Controller GUI",
+            "label": "Simulation - Sim Control",
             "type": "shell",
             "group": "test",
             "command": [
