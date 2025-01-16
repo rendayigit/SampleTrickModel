@@ -1,9 +1,6 @@
-/************************************************************
-PURPOSE:
-    ( A variable type that allows the flow of data between models. )
-*************************************************************/
-#ifndef DATAFLOW_HPP
-#define DATAFLOW_HPP
+/* PURPOSE: A variable type that allows the flow of data between models. */
+
+#pragma once
 
 #include <functional>
 #include <stdexcept>
@@ -164,5 +161,3 @@ private:
   friend void InFlow<T>::setConnected();
   friend bool InFlow<T>::getConnected();
 };
-
-#endif // DATAFLOW_HPP

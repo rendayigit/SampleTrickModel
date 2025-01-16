@@ -1,7 +1,6 @@
 // This file contains functions that manupulate the mocked functions defined in exec_proto.h
 
-#ifndef MOCK_EXEC_PROTO_HPP
-#define MOCK_EXEC_PROTO_HPP
+#pragma once
 
 #include "mocks/EventManager_c_intf/mock_EventManager_c_intf.hpp"
 #include "sim_services/Executive/include/exec_proto.h"
@@ -59,6 +58,6 @@ inline void progressSimulation(double seconds) {
  *
  * @param isProgress Whether to progress or not.
  */
-inline void setIsProgressingByEachSimTimeCall(bool isProgress) { isProgressingByEachSimTimeCall = isProgress; }
-
-#endif
+inline void setIsProgressingByEachSimTimeCall(bool isProgress) {
+  isProgressingByEachSimTimeCall = isProgress;
+}

@@ -1,7 +1,6 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model created to demonstrate inter model communication between ModelX and
-ModelY.)
-**************************************************************************/
+/* PURPOSE: A sample trick model created to demonstrate inter model communication between ModelX and
+ * ModelY. */
+
 #pragma once
 
 #include "common/dataFlow.hpp"

@@ -1,7 +1,7 @@
-// This file contains functions that manupulate the mocked functions defined in EventManager_c_intf.h
+// This file contains functions that manupulate the mocked functions defined in
+// EventManager_c_intf.h
 
-#ifndef MOCK_EVENTMANAGER_C_INTF_HPP
-#define MOCK_EVENTMANAGER_C_INTF_HPP
+#pragma once
 
 #include "trick/Event.hh"
 #include <vector>
@@ -14,5 +14,3 @@ inline void event_dummy_checkpoint_restart() { // NOLINT(readability-identifier-
     event->restart();
   }
 }
-
-#endif // MOCK_EVENTMANAGER_C_INTF_HPP

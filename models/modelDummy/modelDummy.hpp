@@ -1,10 +1,6 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model that only showcases minimal sim features. )
-PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (01 July 2024))
-**************************************************************************/
-#ifndef ModelDummy_HPP
-#define ModelDummy_HPP
+/* PURPOSE: A sample trick model that only showcases minimal sim features. */
+
+#pragma once
 
 class ModelDummy {
 public:
@@ -26,5 +22,3 @@ private:
   // Notice clangd suggests abiding by the set naming conventions.
   int test;
 };
-
-#endif // ModelDummy_HPP

@@ -1,8 +1,6 @@
-/*************************************************************************
-PURPOSE: ( A service that allows the creation of events that can be triggered by the simulator. )
-**************************************************************************/
-#ifndef MODELEVENT_HPP
-#define MODELEVENT_HPP
+/* PURPOSE: A service that allows the creation of events that can be triggered by the simulator. */
+
+#pragma once
 
 #include <functional>
 #include <utility>
@@ -121,5 +119,3 @@ protected:
 
   std::function<void()> m_eventFunction;
 };
-
-#endif // MODELEVENT_HPP

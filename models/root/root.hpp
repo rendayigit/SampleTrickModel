@@ -1,6 +1,5 @@
-/*************************************************************************
-PURPOSE: ( The Root of all models. This model is a container of all other models. )
-**************************************************************************/
+/* PURPOSE: The Root of all models. This model is a container of all other models. */
+
 #pragma once
 
 #include "modelDummy/modelDummy.hpp"

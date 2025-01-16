@@ -1,6 +1,5 @@
-/*************************************************************************
-PURPOSE: ( A sample trick model to demonstrate events. )
-**************************************************************************/
+/* PURPOSE: A sample trick model to demonstrate events. */
+
 #pragma once
 
 #include "common/modelEvent.hpp"
