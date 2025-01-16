@@ -5,4 +5,4 @@ cd -
 
 # Run unit tests
 cd $SCRIPTDIR/../bin/
-./tests
+./tests --gtest_output="xml:../reports/reports.xml"
