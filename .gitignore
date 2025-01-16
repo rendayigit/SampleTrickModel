@@ -28,3 +28,4 @@ S_run_summary
 send_hs
 varserver_log
 www/
+tests/reports/

@@ -4,6 +4,7 @@ set(SOURCEFILES
     ${CMAKE_SOURCE_DIR}/../models/modelDummy/modelDummy.cpp
     # Mock Files
     ${CMAKE_SOURCE_DIR}/mocks/exec_proto/mock_exec_proto.cpp
+    ${CMAKE_SOURCE_DIR}/mocks/EventManager_c_intf/mock_EventManager_c_intf.cpp
     # Unit Test Files
     ${CMAKE_SOURCE_DIR}/models/math/test_math.cpp
     ${CMAKE_SOURCE_DIR}/models/modelX/test_modelDummy.cpp

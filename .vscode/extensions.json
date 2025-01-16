@@ -7,5 +7,6 @@
         "twxs.cmake",
         "ms-vscode.cmake-tools",
         "spmeesseman.vscode-taskexplorer",
+        "ryanluker.vscode-coverage-gutters",
     ]
 }

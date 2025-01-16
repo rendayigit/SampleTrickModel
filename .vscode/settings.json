@@ -1,12 +1,14 @@
 {
     "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.fallbackFlags": [
+        "-std=c++17",
         "--include-directory=${env:TRICK_HOME}/include",
         "--include-directory=${env:TRICK_HOME}/include/trick",
         "--include-directory=${env:TRICK_HOME}/include/trick/compat",
         "--include-directory=${env:TRICK_HOME}/share/trick",
         "--include-directory=${env:TRICK_HOME}/trick_source",
-        "--include-directory=${workspaceFolder}/models"
+        "--include-directory=${workspaceFolder}/models",
+        "--include-directory=${workspaceFolder}/tests",
     ],
     "clangd.path": "clangd",
     "clangd.onConfigChanged": "restart",

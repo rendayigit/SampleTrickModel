@@ -1,19 +1,10 @@
 /*************************************************************************
 PURPOSE: ( The Root of all models. This model is a container of all other models. )
-PROGRAMMERS:
-    (
-      (Yusuf Can Anar) (Turkish Aerospace) (09 July 2024)
-      (Renda Yigit) (Turkish Aerospace) (09 July 2024)
-    )
 **************************************************************************/
-#ifndef ROOT_HPP
-#define ROOT_HPP
+#pragma once
 
-#include "common/network/client/client.hpp"
-#include "common/network/server/server.hpp"
 #include "modelDummy/modelDummy.hpp"
 #include "modelWithEvents/modelWithEvents.hpp"
-#include "modelWithLoad/modelWithLoad.hpp"
 #include "modelX/modelX.hpp"
 #include "modelY/modelY.hpp"
 
@@ -21,54 +12,24 @@ PROGRAMMERS:
 
 class Root {
 public:
-  static Root &getInstance() {
-    static Root instance;
-    return instance;
-  }
-
   // Model instances
-  ModelX *modelX;
-  ModelY *modelY;
-  ModelWithLoad *modelWithLoad;
-  ModelWithEvents *modelWithEvents;
-  ModelDummy *modelDummy;
-  Server *server;
-  Client *client1;
-  Client *client2;
+  ModelX modelX;
+  ModelY modelY;
+  ModelWithEvents modelWithEvents;
+  ModelDummy modelDummy;
 
   /**
-   * Trick data initialization function. This function is called at the beginning of the
-   * simulation before the initialization function. This function is used to set the internal
-   * variables of the models.
-   *
-   * @return 0 indicating successful initialization
-   */
-  int default_data(); // Notice clangd suggests abiding by the set naming conventions.
-
-  /**
-   * Trick initialization function. This function is called at the beginning of the
+   * @brief Trick initialization function. This function is called at the beginning of the
    * simulation.
    *
    * @return 0 indicating successful initialization
    */
-  int init();
+  int initialization();
 
   /**
-   * Trick scheduled function. This function is called at every time step.
+   * @brief Trick termination function. This function is called at the end of the simulation.
    *
-   * @return 0 indicating successful execution
-   */
-  int scheduled();
-
-  /**
-   * Trick shutdown function. This function is called at the end of the simulation.
-   *
-   * @return 0 indicating successful shutdown
+   * @return 0 indicating successful initialization
    */
   int shutdown();
-
-private:
-  Root();
 };
-
-#endif // ROOT_HPP

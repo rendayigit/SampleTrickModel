@@ -1,13 +1,14 @@
 /*************************************************************************
 PURPOSE: ( A sample trick model to demonstrate events. )
-PROGRAMMERS:
-    ((Renda Yiğit) (Turkish Aerospace) (24 July 2024))
 **************************************************************************/
-#ifndef MODELWITHEVENTS_HPP
-#define MODELWITHEVENTS_HPP
+#pragma once
+
+#include "common/modelEvent.hpp"
 
 class ModelWithEvents {
 public:
+  ModelWithEvents();
+
   /**
    * Create a one shot event.
    */
@@ -17,6 +18,8 @@ public:
    * Create a scheduled event.
    */
   void createScheduledEvent();
-};
 
-#endif // MODELWITHEVENTS_HPP
+private:
+  ModelEvent m_oneShotEvent;
+  ModelEvent m_scheduledEvent;
+};
