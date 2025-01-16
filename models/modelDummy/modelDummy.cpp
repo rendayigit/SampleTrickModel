@@ -1,7 +1,8 @@
 #include "modelDummy.hpp"
-#include "sim_services/Executive/include/exec_proto.h"
 
 #include <vector>
+
+#include "sim_services/Executive/include/exec_proto.h"
 
 // Notice clangd suggests using initializer lists and doesn't like magic numbers
 ModelDummy::ModelDummy() {
