@@ -4,7 +4,7 @@ PURPOSE: ( The Root of all models. This model is a container of all other models
 #pragma once
 
 #include "modelDummy/modelDummy.hpp"
-// #include "modelWithEvents/modelWithEvents.hpp"
+#include "modelWithEvents/modelWithEvents.hpp"
 #include "modelX/modelX.hpp"
 #include "modelY/modelY.hpp"
 
@@ -15,7 +15,7 @@ public:
   // Model instances
   ModelX modelX;
   ModelY modelY;
-  // ModelWithEvents modelWithEvents; // TODO: implement
+  ModelWithEvents modelWithEvents;
   ModelDummy modelDummy;
 
   /**
