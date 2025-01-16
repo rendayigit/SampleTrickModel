@@ -5,7 +5,6 @@ PURPOSE: ( The Root of all models. This model is a container of all other models
 
 #include "modelDummy/modelDummy.hpp"
 // #include "modelWithEvents/modelWithEvents.hpp"
-#include "modelWithLoad/modelWithLoad.hpp"
 #include "modelX/modelX.hpp"
 #include "modelY/modelY.hpp"
 
@@ -16,7 +15,6 @@ public:
   // Model instances
   ModelX modelX;
   ModelY modelY;
-  ModelWithLoad modelWithLoad;
   // ModelWithEvents modelWithEvents; // TODO: implement
   ModelDummy modelDummy;
 
