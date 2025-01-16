@@ -1,16 +1,12 @@
 /************************************************************
 PURPOSE:
     ( A variable type that allows the flow of data between models. )
-PROGRAMMERS:
-    (
-        (Renda Yiğit) (Turkish Aerospace) (01 July 2024)
-        (Yusuf Can Anar) (Turkish Aerospace) (01 July 2024)
-    )
 *************************************************************/
 #ifndef DATAFLOW_HPP
 #define DATAFLOW_HPP
 
 #include <functional>
+#include <stdexcept>
 #include <vector>
 
 /**
@@ -26,18 +22,10 @@ template <class T> class OutFlow;  // NOLINT(readability-identifier-naming)
 template <class T> class DataFlow { // NOLINT(readability-identifier-naming)
 public:
   /**
-   * Constructor
+   * Constructors
    */
   DataFlow() = default;
-
-  /**
-   * Set the current value of the dataFlow variable.
-   *
-   * @param t The new value.
-   *
-   * @throws None
-   */
-  virtual void setValue(T t) { m_currentValue = t; }
+  explicit DataFlow(T /*defaultValue*/);
 
   /**
    * Get the current value of the dataFlow variable.
@@ -63,9 +51,14 @@ template <class T> class InFlow : public DataFlow<T> { // NOLINT(readability-ide
 
 public:
   /**
-   * Constructor
+   * Constructors
    */
-  InFlow() : m_updateFunction([this](T t) { this->m_currentValue = t; }) {}
+  InFlow() : m_updateFunction([this](T t) { defaultUpdateFunction(t); }), m_isConnected(false) {}
+
+  explicit InFlow(T defaultValue)
+      : m_updateFunction([this](T t) { defaultUpdateFunction(t); }), m_isConnected(false) {
+    this->m_currentValue = defaultValue;
+  }
 
   /**
    * Sets the update callback function of the inFlow variable. This callback function is called when
@@ -79,8 +72,27 @@ public:
     m_updateFunction = std::move(updateFunction);
   }
 
+  /**
+   * Set the current value of the dataFlow variable, then call the update function.
+   *
+   * @param t The new value.
+   *
+   * @throws None
+   */
+  virtual void setValue(T t) {
+    this->m_currentValue = t;
+    m_updateFunction(t);
+  }
+
 private:
+  void setConnected() { m_isConnected = true; }
+  bool getConnected() { return m_isConnected; }
+
+  bool m_isConnected;
+
   std::function<void(T)> m_updateFunction;
+
+  void defaultUpdateFunction(T t) {}
 };
 
 /**
@@ -89,18 +101,43 @@ private:
 template <class T> class OutFlow : public DataFlow<T> { // NOLINT(readability-identifier-naming)
 public:
   /**
-   * Constructor
+   * Constructors
    */
   OutFlow() : m_connectedInFlows({}) {}
+  explicit OutFlow(T defaultValue) : m_connectedInFlows({}) { this->m_currentValue = defaultValue; }
 
   /**
    * Connect an inFlow variable to this outFlow variable.
    *
    * @param inFlow The inFlow variable to be connected.
    *
-   * @throws None
+   * @throws std::invalid_argument exception is thrown when the provided 'inFlow' pointer is
+   * nullptr, as it cannot be connected in that state.
+   * @throws  std::logic_error exception will be thrown if the supplied 'inFlow' variable is
+   * already linked to another outflow but not an instance of MuxInFlow<T>, since a regular InFlow
+   * object can only support one output connection at any given time.
+   * @throws  std::logic_error exception may arise when attempting to connect this same 'inFlow'
+   * instance more than once, preventing redundant connections and potential issues in data
+   * handling.
    */
-  void connect(InFlow<T> *inFlow) { m_connectedInFlows.push_back(inFlow); }
+  void connect(InFlow<T> *inFlow) {
+    if (inFlow == nullptr) {
+      throw std::invalid_argument("inflow is nullptr");
+    }
+
+    for (auto &connectedInFlow : m_connectedInFlows) {
+      if (inFlow == connectedInFlow) {
+        throw std::logic_error("inflow is already connected");
+      }
+    }
+
+    if (inFlow->getConnected()) {
+      throw std ::logic_error("inflow is connected to another outflow");
+    }
+
+    m_connectedInFlows.push_back(inFlow);
+    inFlow->setConnected();
+  }
 
   /**
    * Set the current value of the dataFlow variable. All the connected inFlow variables will be
@@ -110,10 +147,11 @@ public:
    *
    * @throws None
    */
-  void setValue(T t) override {
+  void setValue(T t) {
     this->m_currentValue = t;
-    for (auto i : m_connectedInFlows) {
-      i->m_updateFunction(t);
+
+    for (auto &connectedInFlow : m_connectedInFlows) {
+      connectedInFlow->setValue(t);
     }
   }
 
@@ -122,6 +160,9 @@ private:
    * The connected inFlow variables.
    */
   std::vector<InFlow<T> *> m_connectedInFlows;
+
+  friend void InFlow<T>::setConnected();
+  friend bool InFlow<T>::getConnected();
 };
 
 #endif // DATAFLOW_HPP
