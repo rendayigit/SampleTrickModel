@@ -29,3 +29,4 @@ send_hs
 varserver_log
 www/
 tests/reports/
+chkpnt_*

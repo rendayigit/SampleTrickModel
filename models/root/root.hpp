@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "MyModel/myModel.hpp"
 #include "modelDummy/modelDummy.hpp"
 #include "modelWithEvents/modelWithEvents.hpp"
 #include "modelX/modelX.hpp"
@@ -16,6 +17,7 @@ public:
   ModelY modelY;
   ModelWithEvents modelWithEvents;
   ModelDummy modelDummy;
+  MyModel myModel;
 
   /**
    * @brief Trick initialization function. This function is called at the beginning of the
