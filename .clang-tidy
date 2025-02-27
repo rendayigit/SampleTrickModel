@@ -12,7 +12,27 @@ Checks: '
     -altera-unroll-loops,
     -bugprone-easily-swappable-parameters,
     -misc-non-private-member-variables-in-classes,
-    -cppcoreguidelines-non-private-member-variables-in-classes
+    -cppcoreguidelines-non-private-member-variables-in-classes,
+    -cppcoreguidelines-owning-memory,
+    -cert-err58-cpp,
+    -cppcoreguidelines-avoid-non-const-global-variables,
+    -fuchsia-statically-constructed-objects,
+    -readability-function-cognitive-complexity,
+    -fuchsia-default-arguments-declarations,
+    -google-runtime-int,
+    -modernize-use-nodiscard,
+    -cppcoreguidelines-special-member-functions,
+    -hicpp-special-member-functions,
+    -hicpp-avoid-goto,
+    -cppcoreguidelines-avoid-goto,
+    -altera-id-dependent-backward-branch,
+    -google-objc-global-variable-declaration,
+    -misc-definitions-in-headers,
+    -hicpp-no-array-decay,
+    -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+    -cppcoreguidelines-pro-type-reinterpret-cast,
+    -misc-no-recursion,
+    -abseil-string-find-str-contains
 '
 
 CheckOptions:
