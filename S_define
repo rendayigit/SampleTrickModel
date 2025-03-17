@@ -3,31 +3,23 @@ PURPOSE:
     ( Trick models entry point. S_define file. )
 LIBRARY DEPENDENCIES:
     (
-        (root/root.cpp)
-        (modelX/modelX.cpp)
-        (modelY/modelY.cpp)
-        (math/math.cpp)
-        (modelWithLoad/modelWithLoad.cpp)
-        (modelWithEvents/modelWithEvents.cpp)
-        (modelDummy/modelDummy.cpp)
-        (memoryManagedModel/memoryManagedModel.cpp)
+        (model/model.cpp)
     )
 *************************************************************/
 
 #include "sim_objects/default_trick_sys.sm"
-// #include "sim_objects/CivetServer.sm"
 
-##include "root/root.hpp"
+##include "model/model.hpp"
 
-class RootSimObject : public Trick::SimObject {
+    class ModelSimObject : public Trick::SimObject {
 public:
   // Required for variable server.
-  Root root;
+  Model model;
 
-  RootSimObject() {
-    ("initialization")  root.initialization();
-    ("shutdown")        root.shutdown();
+  ModelSimObject() {
+    ("initialization") model.initialization();
+    (1.0, "scheduled") model.scheduled();
   }
 };
 
-RootSimObject sim;
+ModelSimObject sim;
