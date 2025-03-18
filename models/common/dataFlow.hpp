@@ -156,7 +156,7 @@ private:
   /**
    * The connected inFlow variables.
    */
-  std::vector<InFlow<T> *> m_connectedInFlows;
+  std::vector<InFlow<T> *> m_connectedInFlows; /* ** */
 
   friend void InFlow<T>::setConnected();
   friend bool InFlow<T>::getConnected();
